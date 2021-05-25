@@ -1,6 +1,6 @@
 # LameTD
 
-#Ideas:
+# Ideas:
 
 Some sort of tower defense game
   
