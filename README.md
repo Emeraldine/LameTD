@@ -12,4 +12,4 @@ Some sort of tower defense game
   - maps/pathing for enemies
 
 
-  We need sprites/art for it, doesn't have to be good but it shouldn't just be colorful rectangles
+  We need sprites/art for it, doesn't have to be good but it should~~n't~~ just be colorful rectangles
