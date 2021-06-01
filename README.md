@@ -24,5 +24,3 @@ Some sort of tower defense game
   We need sprites/art for it, doesn't have to be good but it should~~n't~~ just be colorful rectangles
 
   Add ideas as you think of them.
-
-Hi Guys
