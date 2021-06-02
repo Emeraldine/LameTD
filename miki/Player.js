@@ -5,20 +5,24 @@ class Player
   	this.hp = hp;
     this.money = money
   }
-  get hp()
+  gethp()
   {
   	return this.hp;
   }
-  set hp(val)
-  {
-  	this.hp = val;
-  }
-  get money()
+  getmoney()
   {
   	return this.money;
   }
-  set money(val)
+  setmoney(val)
   {
   	this.money = val;
+  }
+  buyTower(tower)
+  {
+  	if(this.money >= tower.getCost())
+    	{
+  		tower.drawTower();
+     		this.money -= tower.getCost;
+    	}
   }
 }
