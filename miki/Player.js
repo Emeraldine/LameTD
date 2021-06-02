@@ -4,6 +4,7 @@ class Player
   {
   	this.hp = hp;
     this.money = money
+	  this.level = 0;
   }
   gethp()
   {
@@ -17,6 +18,10 @@ class Player
   {
   	this.money = val;
   }
+	addLevel()
+	{
+		this.level++;
+	}
   buyTower(tower)
   {
   	if(this.money >= tower.getCost())
