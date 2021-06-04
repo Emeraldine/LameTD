@@ -1,10 +1,11 @@
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
 
+var canvas = document.getElementById("canvas");
 canvas.onload = function(){update()};
 
 
 function update() {
+  
+  var ctx = canvas.getContext("2d");
   ctx.beginPath();
   //ctx.arc(100, 100, 50, 0, 2 * Math.PI, true);
   ctx.rect(100, 100, 50, 100);
