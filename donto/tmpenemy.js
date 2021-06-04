@@ -3,7 +3,7 @@ var canvas = document.getElementById("canvas");
 canvas.onload = function(){update()};
 
 
-function update() {
+function update(canvas) {
   
   var ctx = canvas.getContext("2d");
   ctx.beginPath();
