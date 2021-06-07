@@ -52,3 +52,7 @@ class Enemy
 		}
   }
 }
+
+function makeT1Enemy(x, y)
+{
+	var t1Enemy = new enemy(x, y, 
