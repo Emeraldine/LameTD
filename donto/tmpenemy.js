@@ -15,4 +15,9 @@ function update(canvas) {
  
   requestAnimationFrame(update);
 }
+function doThing()
+{
+  alert("bad");
+}
+
 update();   
