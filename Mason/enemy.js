@@ -55,4 +55,20 @@ class Enemy
 
 function makeT1Enemy(x, y)
 {
-	var t1Enemy = new enemy(x, y, 
+	var t1Enemy = new enemy(x, y, 3, 5, 10, "../logan/enemy1.png");
+}
+
+function makeT2Enemy(x, y)
+{
+	var t2Enemy = new enemy(x, y, 10, 10, 20, "../logan/enemy2.png");
+}
+
+function makeT1Enemy(x, y)
+{
+	var t3Enemy = new enemy(x, y, 24, 15, 30, "../logan/enemy3.png");
+}
+
+/*function makeT1Enemy(x, y)
+{
+	var t1Enemy = new enemy(x, y, 3, 5, 10, "../logan/enemy1.png");
+}*/
