@@ -1,3 +1,6 @@
+const canvas = document.getElementById('bad');
+const ctx = canvas.getContext('2d');
+
 class Enemy
 {
 	constructor(x, y, health, speed, reward, sourceImage)
@@ -55,20 +58,23 @@ class Enemy
 
 function makeT1Enemy(x, y)
 {
-	var t1Enemy = new enemy(x, y, 3, 5, 10, "../logan/enemy1.png");
+	var t1Enemy = new enemy(x, y, 3, 5, 10, "../logan/Enemy%201.png");
+	t1Enemy.drawEnemy(32, 32);
 }
 
 function makeT2Enemy(x, y)
 {
-	var t2Enemy = new enemy(x, y, 10, 10, 20, "../logan/enemy2.png");
+	var t2Enemy = new enemy(x, y, 10, 10, 20, "../logan/Enemy%202.png");
+	t2Enemy.drawEnemy(32, 32);
 }
 
 function makeT1Enemy(x, y)
 {
-	var t3Enemy = new enemy(x, y, 24, 15, 30, "../logan/enemy3.png");
+	var t3Enemy = new enemy(x, y, 24, 15, 30, "../logan/Enemy%203.png");
+	t3Enemy.drawEnemy(32, 32);
 }
 
 /*function makeT1Enemy(x, y)
 {
-	var t1Enemy = new enemy(x, y, 3, 5, 10, "../logan/enemy1.png");
+	var t1Enemy = new enemy(x, y, 3, 5, 10, "../logan/Enemy%204.png");
 }*/
