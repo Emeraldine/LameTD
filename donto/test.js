@@ -79,7 +79,7 @@ function enable() {
 function drawTower(img, x,y) {
     base_image = new Image();
     base_image.src = img;
-    ctx.drawImage(base_image, x,y);
+    ctx.drawImage(base_image, x - 21,y - 21);
 }
 
 function doTower1() {
