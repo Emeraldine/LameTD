@@ -1,33 +1,45 @@
-class Player
-{ 
-	constructor(hp, money)
+class Tower
+{
+	constructer(atkdmg, atkspd, atkrange, tier)
   {
-  	this.hp = hp;
-    this.money = money
-	  this.level = 0;
+  	this.atkdmg = atkdmg;
+    this.atkspd = atkspd;
+    this.atkrange = atkrange;
+    this.tier = tier;
   }
-  gethp()
+  getatkdmg()
   {
-  	return this.hp;
+  	return this.atkdamage;
   }
-  getmoney()
+  getatkspd()
   {
-  	return this.money;
+  	return this.atkspd;
   }
-  setmoney(val)
+  getatkrange()
   {
-  	this.money = val;
+  	return this.atkrange;
   }
-	addLevel()
-	{
-		this.level++;
-	}
-  buyTower(tower)
+  gettier()
   {
-  	if(this.money >= tower.getCost())
-    	{
-  		tower.drawTower();
-     		this.money -= tower.getCost;
-    	}
+  	return this.tier;
   }
-}
+  setatkdmg(val)
+  {
+  	this.atkdmg = val;
+  }
+  setatkspd(val)
+  {
+  	this.atkspd = val;
+  }
+  setatkrange(val)
+  {
+  	this.atkrange = val;
+  }
+  settier(val)
+  {
+  	this.tier = val;
+  }
+  costTower()
+  {
+  
+  }
