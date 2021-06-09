@@ -58,33 +58,33 @@ class Enemy
 
 function makeT1Enemy(x, y)
 {
-	var t1Enemy = new Enemy(x, y, 3, 5, 10, "../logan/Enemy%201.png");
+	var t1Enemy = new Enemy(x, y, 3, 5, 10, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%201.png?raw=true");
 	t1Enemy.drawEnemy(64, 64);
 }
 
 function makeT2Enemy(x, y)
 {
-	var t2Enemy = new Enemy(x, y, 10, 10, 20, "../logan/Enemy%202.png");
+	var t2Enemy = new Enemy(x, y, 10, 10, 20, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%202.png?raw=true");
 	t2Enemy.drawEnemy(32, 32);
 }
 
 function makeT3Enemy(x, y)
 {
-	var t3Enemy = new Enemy(x, y, 24, 15, 30, "../logan/Enemy%203.png");
+	var t3Enemy = new Enemy(x, y, 24, 15, 30, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%203.png?raw=true");
 	t3Enemy.drawEnemy(32, 32);
 }
 
 function makeT4Enemy(x, y)
 {
-	var t14nemy = new Enemy(x, y, 36, 20, 40, "../logan/Enemy%204.png");
+	var t14nemy = new Enemy(x, y, 36, 20, 40, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%204.png?raw=true");
 }
 
 function makeT5Enemy(x, y)
 {
-	var t5Enemy = new Enemy(x, y, 45, 25, 50, "../logan/Enemy%205.png");
+	var t5Enemy = new Enemy(x, y, 45, 25, 50, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%205.png?raw=true");
 }
 
 function makeT6Enemy(x, y)
 {
-	var t6Enemy = new enemy(x, y, 57, 30, 60, "../logan/Enemy%206.png");
+	var t6Enemy = new enemy(x, y, 57, 30, 60, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%206.png?raw=true");
 }
