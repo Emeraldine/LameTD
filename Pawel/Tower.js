@@ -1,10 +1,11 @@
 class Tower
 {
-	constructer(atkdmg, atkspd, atkrange)
+	constructer(atkdmg, atkspd, atkrange, tier)
   {
   	this.atkdmg = atkdmg;
     this.atkspd = atkspd;
     this.atkrange = atkrange;
+    this.tier = tier;
   }
   getatkdmg()
   {
@@ -18,6 +19,10 @@ class Tower
   {
   	return this.atkrange;
   }
+  gettier()
+  {
+  	return this.tier;
+  }
   setatkdmg(val)
   {
   	this.atkdmg = val;
@@ -30,4 +35,7 @@ class Tower
   {
   	this.atkrange = val;
   }
-  
+  settier(val)
+  {
+  	this.tier = val;
+  }
