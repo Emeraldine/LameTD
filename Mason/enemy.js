@@ -58,30 +58,30 @@ class Enemy
 
 function makeT1Enemy(x, y)
 {
-	var t1Enemy = new enemy(x, y, 3, 5, 10, "https://raw.githubusercontent.com/Zekromeon/LameTD/main/logan/Tower%201.png");
+	var t1Enemy = new Enemy(x, y, 3, 5, 10, "../logan/Enemy%201.png");
 	t1Enemy.drawEnemy(64, 64);
 }
 
 function makeT2Enemy(x, y)
 {
-	var t2Enemy = new enemy(x, y, 10, 10, 20, "../logan/Enemy%202.png");
+	var t2Enemy = new Enemy(x, y, 10, 10, 20, "../logan/Enemy%202.png");
 	t2Enemy.drawEnemy(32, 32);
 }
 
 function makeT3Enemy(x, y)
 {
-	var t3Enemy = new enemy(x, y, 24, 15, 30, "../logan/Enemy%203.png");
+	var t3Enemy = new Enemy(x, y, 24, 15, 30, "../logan/Enemy%203.png");
 	t3Enemy.drawEnemy(32, 32);
 }
 
 function makeT4Enemy(x, y)
 {
-	var t14nemy = new enemy(x, y, 36, 20, 40, "../logan/Enemy%204.png");
+	var t14nemy = new Enemy(x, y, 36, 20, 40, "../logan/Enemy%204.png");
 }
 
 function makeT5Enemy(x, y)
 {
-	var t5Enemy = new enemy(x, y, 45, 25, 50, "../logan/Enemy%205.png");
+	var t5Enemy = new Enemy(x, y, 45, 25, 50, "../logan/Enemy%205.png");
 }
 
 function makeT6Enemy(x, y)
