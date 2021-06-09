@@ -20,7 +20,7 @@ class Enemy
   
   damage(taken)
   {
-  	this
+  	this.health = this.health - taken;
   }
   
   getX()
@@ -59,7 +59,7 @@ class Enemy
 function makeT1Enemy(x, y)
 {
 	var t1Enemy = new Enemy(x, y, 3, 5, 10, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%201.png?raw=true");
-	t1Enemy.drawEnemy(64, 64);
+	t1Enemy.drawEnemy(32, 32);
 }
 
 function makeT2Enemy(x, y)
@@ -76,7 +76,7 @@ function makeT3Enemy(x, y)
 
 function makeT4Enemy(x, y)
 {
-	var t14nemy = new Enemy(x, y, 36, 20, 40, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%204.png?raw=true");
+	var t4Enemy = new Enemy(x, y, 36, 20, 40, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%204.png?raw=true");
 }
 
 function makeT5Enemy(x, y)
@@ -86,5 +86,5 @@ function makeT5Enemy(x, y)
 
 function makeT6Enemy(x, y)
 {
-	var t6Enemy = new enemy(x, y, 57, 30, 60, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%206.png?raw=true");
+	var t6Enemy = new Enemy(x, y, 57, 30, 60, "https://github.com/Zekromeon/LameTD/blob/main/logan/Enemy%206.png?raw=true");
 }
