@@ -39,3 +39,7 @@ class Tower
   {
   	this.tier = val;
   }
+  postionTowers()
+  {
+  	
+  }
