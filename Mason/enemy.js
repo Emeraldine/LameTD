@@ -58,7 +58,7 @@ class Enemy
 
 function makeT1Enemy(x, y)
 {
-	var t1Enemy = new enemy(x, y, 3, 5, 10, "../logan/Enemy%201.png");
+	var t1Enemy = new enemy(x, y, 3, 5, 10, "https://raw.githubusercontent.com/Zekromeon/LameTD/main/logan/Tower%201.png");
 	t1Enemy.drawEnemy(32, 32);
 }
 
