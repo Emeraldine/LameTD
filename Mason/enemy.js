@@ -101,6 +101,9 @@ function makeT6Enemy(x, y)
 function createWave(waveNumber)
 {
 	var wave = [];
+  var numT1E = 0;
+  var numT2E = 0;
+  var numT3E = 0;
 	if(waveNumber == 1)
 	{
 		for(var i = 0; i < 10; i++)
@@ -115,9 +118,11 @@ function createWave(waveNumber)
 		{
 			var t1Enemy = makeT1Enemy(32, 32);
 			wave.push(t1Enemy);
+      numT1E++;
 		}
 	}
-	if(waveNumber > 9 && waveNumber < 14)
+  
+	if(waveNumber > 9 && waveNumber < 15)
 	{
 		for(var i = 0; i < 10 + waveNumber * 2; i++)
     {
@@ -125,15 +130,42 @@ function createWave(waveNumber)
       {
       	var t2Enemy = makeT2Enemy(0 + i * 32, 32)
         wave.push(t2Enemy);
+        numT2E++;
       }
       else
       {
       	var t1Enemy = makeT1Enemy(0 + i * 32, 32);
 			  wave.push(t1Enemy);
+        numT1E++;
       }
     }
 	}
+  
+  if(waveNumber > 14 && waveNumber < 20)
+	{
+		for(var i = 0; i < 10 + waveNumber * 2; i++)
+    {
+    	if(i > 10 + waveNumber)
+      {
+      	var t3Enemy = makeT3Enemy(0 + i * 32, 32)
+        wave.push(t3Enemy);
+        numT3E++;
+      }
+    	if(i > 5 + waveNumber && i < 10 + waveNumber)
+      {
+      	var t2Enemy = makeT2Enemy(0 + i * 32, 32)
+        wave.push(t2Enemy);
+        numT2E++;
+      }
+      if(i < 6 + waveNumber)
+      {
+      	var t1Enemy = makeT1Enemy(0 + i * 32, 32);
+			  wave.push(t1Enemy);
+        numT1E++;
+      }
+    }
+	}
+  console.log(numT1E);
+  console.log(numT2E);
+  console.log(numT3E);
 }
-
-
-
