@@ -105,21 +105,33 @@ function createWave(waveNumber)
 	{
 		for(var i = 0; i < 10; i++)
 		{
-			var enemy = makeT1Enemy(32, 32);
-			wave.push(enemy);
+			var t1Enemy = makeT1Enemy(32, 32);
+			wave.push(t1Enemy);
 		}
 	}
 	if(waveNumber > 1 && waveNumber < 10)
 	{
 		for(var i = 0; i < 10 + waveNumber * 2; i++)
 		{
-			var enemy = makeT1Enemy(32, 32);
-			wave.push(enemy);
+			var t1Enemy = makeT1Enemy(32, 32);
+			wave.push(t1Enemy);
 		}
 	}
 	if(waveNumber > 9 && waveNumber < 14)
 	{
-		
+		for(var i = 0; i < 10 + waveNumber * 2; i++)
+    {
+    	if(i > 10 + waveNumber)
+      {
+      	var t2Enemy = makeT2Enemy(0 + i * 32, 32)
+        wave.push(t2Enemy);
+      }
+      else
+      {
+      	var t1Enemy = makeT1Enemy(0 + i * 32, 32);
+			  wave.push(t1Enemy);
+      }
+    }
 	}
 }
 
