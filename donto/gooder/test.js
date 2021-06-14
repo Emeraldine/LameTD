@@ -54,7 +54,45 @@ const towerMap = [
     },
 ]
 
+const enemyMap = [
+    {
+        "name": "enemy1",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACCUlEQVRYR8WXLW/DQAyGXVIpfIMtSWFQyEBVOjK0P1JUOjQ6tD8yNDI6FYwUBTakgSuvVJLJXnz1Xa4X30XTSio1sd/Hr30fncC4T9uFT1LTJAcCQLtcLkl3u93iV1KupKCu2n8FIPHT6UQsWZYlu5DqwJ8A4EBpgcYCGC0pqAUw4ufzmVownU5j29ADoKTKaR4LYGmxA1EAZVkCV8/rH13Y7Xaa5dgDMBUpp7kdAdDTQgdiALziES6EAdDWASsJYP+whvnbi7X7Hh43sHh/DbXBwMuhtRxQA9ytYf7pAKw2sPhKBHB7GnAhtQW9ONYgB5QAQfGBOYgD4M3FWVZX+8/iV+YguGq8DngA2qIoSAdF4AjeGYAbMMNZVRXvCaMBSNgArDY9ceOAeNYB0KPQvnHVgdQbjjYuOIScRFbBDkgBagdcbJfPhmIHAUQPMa+ZATlwUtDdmIbiowHyPKcjVwOAN6W6ruXB1CvAAnCTO/Ss2fJ7bL3bb3TBI27iZRv5PRpCCRBKMBbAp2MBBMRpDjDB9/0T4Hr3fo4Atx/Prv3yVVOs1wE1AKZ0IY6/OkkAs9mMjmFncHxFXlyQEDpxa5bw5G2ahm7BbSwAr4bDqtsHuqN5wMEwANIor+XW0HJWpbiBwKItB2IA2DHZI7ZUW4QEoAlXBloVSICIAkwO1NT+E/IOpPNjUq4fuPkCKt84HNcAAAAASUVORK5CYIIA",
+        "health": 1
+    },{
+        "name": "enemy2",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACP0lEQVRYR8WXr3ICQQzGF8MMD1BRAQYkCstzVNXWFlNsVS011NZW9TmwKCQYEBV9AGYw1/nSy052L7uXW6bTM8DeJvkl+fYPPXfdU9XmvVI3xYbOuWo+n1PczWaDjyJfRUZ1tv8CwCV3yP58PhPLYDDgKnAnzIlZJ1JgLjm+I/jlcqGA/X6fIPipW2JqiwRICaqazWbeOQfFwPL4ROOr0at/Dxh+ttutBhHEsQDACRlNp9NA7PfHJf3+GK2C8d1ul2uFCmAVFBmjIrIS3IY641zpG3G4AlYAqkYLQE5XKgANKopOOSoFUOMgiH+BskJECfEks+eGW2151WC1NACifsZVoOwX+8dA+bwi1pO3FHxQtasB7vaLhvKxIj4n6zKADqJS+9/SgqxmqAVGgGzwDIQdQO5siqCS/efgsFd04AE0/0EF4q1VQPhdEHO+XE/VwK2rvDh5N5TVbQVIba1yn8WceOvl97l3mCP9c3JJDQSb+x/8MAGIQ6VxEKVOQ2Zts20FqB34syI+CbmfHFAeyRhrs+8MMB6Pg0tHDgDnyuFwkKdiFScQAMTOI3pOsuJ5cXBZBSW4t5cQPI9EKAFyDq4F0OIEAJngdBLCwcP3s8N61x7sD+83L3H55VSfrFoBKwA8xhAIjqcIYDgc0j0gEo6WpK+ChDAGD7SEu8fpdPq9D3QF4Ct4vHO2VDAPABrj36tAtOzVGNxDIOmgAl0AuGKyR1xSaxISgBRuNAwykAAdEvA+ENP610wVZDRY5OsHfJQQKnovK+UAAAAASUVORK5CYIIA",
+        "health": 2  
+    },{
+        "name": "enemy3",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACXElEQVRYR82XPWsCQRCGVwLCVUIgpTYKNla2/icr21RprfxPtlY2AW3OMhCwOhCCYcZ9N7N7+zGnFrlG3duZ95mv9a5nHruu1rx3r5t7DVl4sViw7na7hX5nf10NPOGmaVi4qqq7QboAXOfzOYtB+HK5sHC/33cgdG+329FvlW/VJmMMi+OCcFh3gNC6FkID4MRTwikQDYQaQCsOGMrGUwGWh4MxU2PWzcgFvKpr/r4eibWqNubTmM1k0hmAOjzMCKefol9VtSdOwjEAXrd7M1lwWhC80kyLeebIIB47ZCCOezILcr+AcMtCq0cALH4+n81gMOBN4ZiFAKG4BkKeF9CigD2AWKRYI1FEWQKQe1M+KdgWQKqmrt62CXMAVH9qwlhJpH8PgGq9fDmwIV9Bt8vGks0XRucyFGtYCwb/m5/blHAJNAClPkg1oSvhswBS6S81IkqTzABmnQ8WcdjIyEviKgjrH+PpSqACkGlMtXekf7wy5AByYxg6cQ2LG9Pbl1T2Qt/RDGgAUk2lFYZ9EQCnIQzw1IORjGVAQuTsyUcWgI7K0+nkJWQ8HrtHL6+jRQkAQOLH49GzHw6H7qhvAUjndHO/39NH65+R9r2/fv0dWGHNpsZ8fL9BvGU/m82cBSB5CiSAoE8DkBucmkET5gBiOh5ARpxkHCiXQEKICdD6iGZAaxyba6xpfXgA1CDUlbZxUs+JXqlSI1sAcJmkg48anUvwLwDs2D0UvbIMnAUK2stACQBZkgdSrAxUAqQ383bkATCR4lWKjTRXIRi4YE3Ni4nUxOt4iUPt9xdtgNAcJH6FygAAAABJRU5ErkJgggAA",
+        "health": 3
+    },{
+        "name": "enemy4",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTElEQVRYR82XoU9DMRDGO7NkiqBAMAQLalOz+3tQWIJCoggWxd8zOzUUGYKHALWgXjLzyF32Xa7Xvq7tDDPL+l57v/vuu7YbuPpPZ6YOapaqmuSc6xaLhRdvuVzS7+L1iicgeNu2HsBoNHI1EKUAnDkF3+12HsBwOHQ1EP8KgEyVAgqy/3mYsgpnj2/8XaCCxNIBUwDdfD7nIJAewVEHDUFjq9UqZcoAgLOLmIhbzQansT4AKKEgLIgXCwrEAIKske337ZUbnI48E3bb1p2/fATGjKgRAEhtIy6OKkAAsQ8AyAs9CgSxSIEUAOL0qmFBTHBr6igArcEByGC0QI+B5B2qP0wHAIzlzNfviAcyAAT08+YiqDeV5fL1K+X+aJJeG85mM+nnQyrEPJCTPc1br9fSGSUAkkHUgfvBHghv7kEA9LJRgRdp7q+D+msfjJ/ebRkC8BqADuUhs8V6HnsDzKmCHA3ACQKAAtkNR29QeLYH4EcwON7LUiBV52OfZQPoLKCADm5PQ/0sNTcLQL9EG5UFSB1GttXs/CqAyWTCNx7teJ2x3hnpxrTZbKTXiwFM9nIeAMJmjxcIIhJc5kPFpAKpBY4FwPwYANc4EZzPAVrg924a3AUkxW3rTp7frPy6UrwGlRIQchiVAHBxIxcSGq8B6MbjMR/DxjixdhcVNATtjBnBPS/R0d80Dd+CiwHQDbgZYfc7UMI0ANFk/rWSOmqJMoMLBKnuKVACgJJpAEiam4QGYIdnTvQy0AAFCcgaFLP0r5nXUsalVWv9AV/n+CrnuSntAAAAAElFTkSuQmCC",
+        "health": 4
+    },{
+        "name": "enemy5",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEElEQVRYR62Xra4CMRCFiyHhIcBgWYPFYXleLA6LYS0GHoIEszfTMM3pMD8t3CqynZ7zzXS2W2apf0zBklmPZGtwMd3tdq7++XzG+VA/CsjGaPp8Pl2AxWJR5gHG9LEmKmM0fb1eLsB8Pi/zDOOBSIBsvN1uEy1mY2l6vV7T/X5Ph8Mhmx2Px7RardIwDBUcw7DW5XLh+eKLABMZ42BjMqTBBmTI5hyPz2Q8VoXi3yDZ+wMgyra1w72qaAA5+/8yx6pYW8MQXIEPALnPLErP5V57c1olaEsQoNmcjCwwq+RWkzIEVUAtv7XXWgNqjRj1igsguzgSi+Y1PROAg1nU2m/eDnw9NRBL72eAVtAuAG4kzARPPHzeAuDpqRXoAcBYC7IbAF8Z+m0JY9fTb3ksY6UsUPctoEWRcNT5EkLqfX0O9Bh7sU0A4zgWjc1m86HnnRfR2hDgLVC+FRIgegui9d0A6/U6X1Lww4MlwQOLLjK3242mzQQqACku6Nln4jiZPZ6ainlZj1XkuPwxQgBP4FcAzacCcMwpiwx6Op3y/U8bdG7s93tZfgwtyaoVaAUgRQlB5jS+Algul4maQjSOlmSpAkI0mle9RNe/x+ORu3TqBeC3QZ6YQQV9AKIRt2TrIKualoMazQsEJV1VoAeAK4aEXNLWJBAgd3jjwioDBOhIoGiQZ/Tn1PueyL/pX2n9AST4BCqvPM1TAAAAAElFTkSuQmCC",
+        "health": 5
+    },{
+        "name": "enemy6",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACR0lEQVRYR62XoU4DQRCGtwlpUgcCEkIaRG1VbV8AhSUoXgCFAoPAgELxAiiCRfECtVW1FaQhJCDANWlIjvybm8vs3Ozs7R0rb2fm/3Zmbm6v57qtonTvtQ3T1tELT6dTrzubzUg/O162g3OuIOH1eu2FB4MBB8mKmWVM4iS82Wy8cL/fr0DKbDSO29iQi5OwrDtAkI0ciKYAxWQy8XoxcYKhbMznczxKxk8a4OQQ5+m2MsDtmkCkAAJxqvf96bs7f9wNKvBw9uUung6CDCEbKQgLQE07gl4evbmbl/0A4Pr4w929HtYAYGRBJAFkugHQpAS8JzoDIL1IuSXOBQHIff4VQKs/ifM+6AoQNB/qSzVH4M/vX7UH9na2qubkPlYzxnqg1v10Sh5YDqLYXi5AVLztF49eX60XtAw0BkA5sORM0EBjWZAA2eIk1hbCBLBOSHsWgPTXssABgtNbAnJPg4j5SwgVICXQZT8GUIzH46p38DrhneaL3n1tj+wsGzk7FouF/1xTBgIA7HAhOF89b/vLBp5jaYB4joGFG9PtyU9low2uJABBUFCeDQkBActOfjlhGwUAPV0yU4OHQDQBzZfHVgFgsFwuHe+HFETOPkRHo5E/oAkQCwpnrFiG6LaMQ1gxVAAELx3NS0oMQognY5BW9RYkAOgXzKfQWuL06reGa1UAZdDaaMbz4XAYaNLVW4LIq9pqtSITNW4wBxSAQgpzQQlh/S+UIMHUJT2egRqlBZDT/QoA3FHWahLG4lW1zxFUbKNN+Qdd+ZUw4fICBwAAAABJRU5ErkJgggAA",
+        "health": 6
+    }
+]
+
+
+////////
+// math
+////////
+function between(x, min, max) {
+  return x >= min && x <= max;
+}
+
+
 const placedTowers = [];
+const aliveEnemies = [];
 
 class Tower {
     constructor(type, x, y) {
@@ -69,6 +107,7 @@ class Tower {
         let tmpY = this.y;
         img.onload = function() {
             ctx.drawImage(img, tmpX, tmpY);
+            mapPath.push([tmpX, tmpY, 42, 42]);
         }
         placedTowers.push(this);
     }
@@ -79,7 +118,6 @@ canvas.addEventListener('mousedown', e => {
     if(selected && canPlace) {
         var tow = new Tower(selection, e.x - 21, e.y - 21);
         tow.build();
-
         selected = false;
         selection = undefined;
         enableButtons();
@@ -102,34 +140,46 @@ function enableButtons() {
 }
 
 function doTower1() {
-    selected = true;
-    selection = "tower1";
-    disableButtons();
+    if(buy(50)) {
+        selected = true;
+        selection = "tower1";
+        disableButtons();
+    }
 }
 function doTower2() {
-    selected = true;
-    selection = "tower2";
-    disableButtons(); 
+    if(buy(125)) {
+        selected = true;
+        selection = "tower2";
+        disableButtons();
+    }
 }
 function doTower3() {
-    selected = true;
-    selection = "tower3";
-    disableButtons();
+    if(buy(275)) {
+        selected = true;
+        selection = "tower3";
+        disableButtons();
+    }
 }
 function doTower4() {
-    selected = true;
-    selection = "tower4";
-    disableButtons();
+    if(buy(575)) {
+        selected = true;
+        selection = "tower4";
+        disableButtons();
+    }
 }
 function doTower5() {
-    selected = true;
-    selection = "tower5";
-    disableButtons();
+    if(buy(1175)) {
+        selected = true;
+        selection = "tower5";
+        disableButtons();
+    }
 }
 function doTower6() {
-    selected = true;
-    selection = "tower6";
-    disableButtons();
+    if(buy(2375)) {
+        selected = true;
+        selection = "tower6";
+        disableButtons();
+    }
 }
 
 ///////////
@@ -144,6 +194,7 @@ const mapPath = [
 ];
 
 for(var i = 0; i < mapPath.length; i++) {
+    ctx.fillStyle = 'green';
     ctx.fillRect(...mapPath[i]);
 }
 function isPointInRects(x, y) {
@@ -163,6 +214,10 @@ var mouseX = NaN;
 var mouseY = NaN;
 
 canvas.addEventListener('mousemove', setMousePosition, false);
+canvas.addEventListener('mouseleave', e => {
+    mouseX = NaN;
+    mouseY = NaN;
+})
 
 function setMousePosition(e) {
     mouseX = e.x;
@@ -200,7 +255,7 @@ function rebuild() {
         let tmp = new Image();
         tmp.src = t.image;
         tmp.onload = function() {
-            ctx.drawImage(tmp, (Number(placedTowers[i].x) - 21), (Number(placedTowers[i].y - 21)));
+            ctx.drawImage(tmp, (Number(placedTowers[i].x)), (Number(placedTowers[i].y)));
         }
     }
 }
@@ -210,5 +265,63 @@ function setBg() {
     bg.src = source;
     bg.onload = function() {
         ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+    }
+}
+
+
+
+
+function getMoney() {
+    return document.getElementById("cash").innerHTML;
+}
+
+function buy(value) {
+    if(getMoney() >= value)
+    {
+        let a = document.getElementById("cash").innerHTML;
+        document.getElementById("cash").innerHTML = Number(a) - value;
+        return true;
+    } else {
+        alert("Not enough funds to purchase!")
+        return false;
+    }
+}
+
+
+
+
+//////////
+// enemies / waves
+//////////
+function startWave() {
+    let a = document.getElementById("wave").innerHTML;
+    document.getElementById("wave").innerHTML = Number(a) + 1;
+    disableWave();
+}
+function enableWave() {
+    enableButtons();
+    document.getElementById("thing").disabled = false;
+}
+function disableWave() {
+    disableButtons();
+    document.getElementById("thing").disabled = true;
+}
+
+class Enemy
+{
+    constructor(type, x, y) {
+        this.type = type;
+        this.x = x;
+        this.y = y;
+    }
+    spawn() {
+        let img = new Image();
+        img.src = enemyMap.find(enemy => enemy.type == this.type);
+        let tmpX = this.x;
+        let tmpY = this.y;
+        img.onload = function() {
+            ctx.drawImage(img, tmpX, tmpY);
+        }
+        aliveEnemies.push(this);
     }
 }
