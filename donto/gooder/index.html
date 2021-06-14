@@ -1,0 +1,71 @@
+<style>
+    .disable-select {
+        user-select: none; /* supported by Chrome and Opera */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+    }
+    div.static {
+      position: static;
+      width: 890px;
+      height: 90px;
+      padding-left: 10px;
+      padding-top: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    #control-right {
+        padding-top: 15px;
+        float:right;
+    }
+    #control-right-2 {
+        border:solid #CCC;
+        border-width:0 1px;
+        margin:0 10px;
+        min-width:60px;
+        padding:0 10px
+    }
+    #p {
+        position: absolute;
+        right: 0;
+    }
+    button.bruh {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        overflow: hidden;
+        cursor:pointer;
+        outline:none;
+        color:#CCC;
+        padding-left: 15px;
+    }
+</style>
+    
+
+
+<html style="background-color: #181a1b;">
+    <title>LameTD</title>
+</html>
+<div>
+    <canvas id="bad" style="background-color: #4d4d4d;"></canvas>
+    <textarea id="output" readonly style="resize: none; border: none; height: 500px; background-color: rgb(43, 47, 49); color: #CCC;"></textarea>
+</div>
+
+
+<div id="test" class="static disable-select" style="background-color:rgb(43, 47, 49)">
+    <button onclick="doTower1()" class="bruh" id="button1"><img src="https://github.com/Zekromeon/LameTD/blob/main/logan/Tower%201.png?raw=true"><br>Tower 1<br>₪50</button>
+    <button onclick="doTower2()" class="bruh" id="button2"><img src="https://github.com/Zekromeon/LameTD/blob/main/logan/Tower%202.png?raw=true"><br>Tower 2<br>₪125</button>
+    <button onclick="doTower3()" class="bruh" id="button3"><img src="https://github.com/Zekromeon/LameTD/blob/main/logan/Tower%203.png?raw=true"><br>Tower 3<br>₪275</button>
+    <button onclick="doTower4()" class="bruh" id="button4"><img src="https://github.com/Zekromeon/LameTD/blob/main/logan/Tower%204.png?raw=true"><br>Tower 4<br>₪575</button>
+    <button onclick="doTower5()" class="bruh" id="button5"><img src="https://github.com/Zekromeon/LameTD/blob/main/logan/Tower%205.png?raw=true"><br>Tower 5<br>₪1175</button>
+    <button onclick="doTower6()" class="bruh" id="button6"><img src="https://github.com/Zekromeon/LameTD/blob/main/logan/Tower%206.png?raw=true"><br>Tower 6<br>₪2375</button>
+    <div id="control-right"> 
+        <div id="control-right-2" style="color:#CCC">
+            Cash ₪<span id="cash">0</span><br>
+            Wave #<span id="wave">0</span><br>
+            <button id="waveBtn">Start Wave</button>
+        </div>
+    </div>
+</div>
+
+<script src="test.js"></script>
