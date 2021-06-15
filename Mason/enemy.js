@@ -98,45 +98,63 @@ function makeT6Enemy(x, y)
 	return t6Enemy;
 }
 
+///Make-A-Wave Foundation
 function createWave(waveNumber)
 {
 	var wave = [];
-  var valT1E = 1;
-  var valT2E = 5;
-  var valT3E = 10;
-  var waveValue = Math.round(waveNumber * 5.4);
-  var enemNum = 0;
+  var enemyVals = [1, 5, 10, 15, 20, 25]; //"Cost" of creating each enemy, from 1-6 (0-5).
+  var waveValue = Math.round(waveNumber * 25); //Sets the "budget" for each wave
+  var enemNum = 0; //Stores the total number of enemies (for spacing).
+  var enemyNums = [0, 0, 0, 0, 0, 0] //Splits total number of enemies into tiers for number balancing and testing.
+  //This loopy boi runs through if statements for every tier of enemy, starting at 6 and going down to 1. It then checks if the wave number is high enough to spawn it, if there is enough budget left to spawn it, and if there are already too many of that tier of enemy. Tier 1 has no limit, the other limits are dictated by wave number.
   while(true)
   {
-  	if(waveValue > valT3E)
+  	if(waveNumber > 19 && waveValue > enemyVals[3] && enemyNums[2] < waveNumber)
+    {
+    	var t4Enemy = makeT4Enemy(0 + enemNum * 32, 32)
+	    wave.push(t4Enemy);
+			//numT3E++;
+      waveValue -= enemyVals[3];
+      enemNum++;
+      enemyNums[3] = enemyNums[3] + 1;
+      continue;
+    }
+  	if(waveNumber > 14 && waveValue > enemyVals[2] && enemyNums[2] < waveNumber + 2)
     {
     	var t3Enemy = makeT3Enemy(0 + enemNum * 32, 32)
 	    wave.push(t3Enemy);
 			//numT3E++;
-      waveValue -= valT3E;
+      waveValue -= enemyVals[2];
       enemNum++;
+      enemyNums[2] = enemyNums[2] + 1;
       continue;
     }
-    if(waveValue > valT2E)
+    if(waveNumber > 9 && waveValue > enemyVals[1] && enemyNums[1] < waveNumber + 4)
     {
     	var t2Enemy = makeT2Enemy(0 + enemNum * 32, 32)
 	    wave.push(t2Enemy);
 	    //numT2E++;
-      waveValue -= valT2E;
+      waveValue -= enemyVals[1];
       enemNum++;
+      enemyNums[1] = enemyNums[1] + 1;
       continue;
     }
-    if(waveValue > valT1E)
+    if(waveValue >= enemyVals[0])
     {
     	var t1Enemy = makeT1Enemy(0 + enemNum * 32, 32);
 	    wave.push(t1Enemy);
 	    //numT1E++;
-      waveValue -= valT1E;
+      waveValue -= enemyVals[0];
       enemNum++;
+      enemyNums[0] = enemyNums[0] + 1;
       continue;
     }
     break;
   }
+  console.log(enemyNums[0]);
+  console.log(enemyNums[1]);
+  console.log(enemyNums[2]);
+  console.log(enemyNums[3]);
 	/* if(waveNumber == 1)
 	{
 	  for(var i = 0; i < 10; i++)
