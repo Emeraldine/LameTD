@@ -1,6 +1,7 @@
 const canvas = document.getElementById('bad');
 const ctx = canvas.getContext('2d');
 
+//This is the enemy class. Has health, speed, reward, and the image, then functions to get all those things, and draw the enemy.
 class Enemy
 {
 	constructor(x, y, health, speed, reward, sourceImage)
@@ -56,6 +57,7 @@ class Enemy
   }
 }
 
+//These are the functions for making new enemies.
 function makeT1Enemy(x, y)
 {
 	var t1Enemy = new Enemy(x, y, 3, 5, 10, "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACCUlEQVRYR8WXLW/DQAyGXVIpfIMtSWFQyEBVOjK0P1JUOjQ6tD8yNDI6FYwUBTakgSuvVJLJXnz1Xa4X30XTSio1sd/Hr30fncC4T9uFT1LTJAcCQLtcLkl3u93iV1KupKCu2n8FIPHT6UQsWZYlu5DqwJ8A4EBpgcYCGC0pqAUw4ufzmVownU5j29ADoKTKaR4LYGmxA1EAZVkCV8/rH13Y7Xaa5dgDMBUpp7kdAdDTQgdiALziES6EAdDWASsJYP+whvnbi7X7Hh43sHh/DbXBwMuhtRxQA9ytYf7pAKw2sPhKBHB7GnAhtQW9ONYgB5QAQfGBOYgD4M3FWVZX+8/iV+YguGq8DngA2qIoSAdF4AjeGYAbMMNZVRXvCaMBSNgArDY9ceOAeNYB0KPQvnHVgdQbjjYuOIScRFbBDkgBagdcbJfPhmIHAUQPMa+ZATlwUtDdmIbiowHyPKcjVwOAN6W6ruXB1CvAAnCTO/Ss2fJ7bL3bb3TBI27iZRv5PRpCCRBKMBbAp2MBBMRpDjDB9/0T4Hr3fo4Atx/Prv3yVVOs1wE1AKZ0IY6/OkkAs9mMjmFncHxFXlyQEDpxa5bw5G2ahm7BbSwAr4bDqtsHuqN5wMEwANIor+XW0HJWpbiBwKItB2IA2DHZI7ZUW4QEoAlXBloVSICIAkwO1NT+E/IOpPNjUq4fuPkCKt84HNcAAAAASUVORK5CYIIA");
@@ -103,13 +105,33 @@ function createWave(waveNumber)
 {
 	var wave = [];
   var enemyVals = [1, 5, 10, 15, 20, 25]; //"Cost" of creating each enemy, from 1-6 (0-5).
-  var waveValue = Math.round(waveNumber * 10); //Sets the "budget" for each wave
+  var waveValue = Math.round(waveNumber * 25); //Sets the "budget" for each wave
   var enemNum = 0; //Stores the total number of enemies (for spacing).
   var enemyNums = [0, 0, 0, 0, 0, 0] //Splits total number of enemies into tiers for number balancing and testing.
   //This loopy boi runs through if statements for every tier of enemy, starting at 6 and going down to 1. It then checks if the wave number is high enough to spawn it, if there is enough budget left to spawn it, and if there are already too many of that tier of enemy. Tier 1 has no limit, the other limits are dictated by wave number. Once the budget is 0, no new enemies spawn and the loop ends.
   while(true)
   {
-  	if(waveNumber > 19 && waveValue > enemyVals[3] && enemyNums[3] < waveNumber)
+  	if(waveNumber > 49 && waveValue > enemyVals[5] && enemyNums[5] < 1 + waveNumber - 50)
+    {
+    	var t6Enemy = makeT6Enemy(0 + enemNum * 32, 32)
+	    wave.push(t6Enemy);
+			//numT3E++;
+      waveValue -= enemyVals[5];
+      enemNum++;
+      enemyNums[5] = enemyNums[5] + 1;
+      continue;
+    }
+  	if(waveNumber > 39 && waveValue > enemyVals[4] && enemyNums[4] < 1 + waveNumber - 40)
+    {
+    	var t5Enemy = makeT5Enemy(0 + enemNum * 32, 32)
+	    wave.push(t5Enemy);
+			//numT3E++;
+      waveValue -= enemyVals[4];
+      enemNum++;
+      enemyNums[4] = enemyNums[4] + 1;
+      continue;
+    }
+  	if(waveNumber > 29 && waveValue > enemyVals[3] && enemyNums[3] < 1 + waveNumber - 30)
     {
     	var t4Enemy = makeT4Enemy(0 + enemNum * 32, 32)
 	    wave.push(t4Enemy);
@@ -119,7 +141,7 @@ function createWave(waveNumber)
       enemyNums[3] = enemyNums[3] + 1;
       continue;
     }
-  	if(waveNumber > 14 && waveValue > enemyVals[2] && enemyNums[2] < waveNumber + 2)
+  	if(waveNumber > 19 && waveValue > enemyVals[2] && enemyNums[2] < 1 + waveNumber - 20)
     {
     	var t3Enemy = makeT3Enemy(0 + enemNum * 32, 32)
 	    wave.push(t3Enemy);
@@ -129,7 +151,7 @@ function createWave(waveNumber)
       enemyNums[2] = enemyNums[2] + 1;
       continue;
     }
-    if(waveNumber > 9 && waveValue > enemyVals[1] && enemyNums[1] < waveNumber + 4)
+    if(waveNumber > 9 && waveValue > enemyVals[1] && enemyNums[1] < 1 + waveNumber - 10)
     {
     	var t2Enemy = makeT2Enemy(0 + enemNum * 32, 32)
 	    wave.push(t2Enemy);
@@ -151,72 +173,10 @@ function createWave(waveNumber)
     }
     break;
   }
-  console.log(enemyNums[0]);
-  console.log(enemyNums[1]);
-  console.log(enemyNums[2]);
-  console.log(enemyNums[3]);
-	/* if(waveNumber == 1)
-	{
-	  for(var i = 0; i < 10; i++)
-	  {
-	    var t1Enemy = makeT1Enemy(32, 32);
-	    wave.push(t1Enemy);
-	  }
-	}
-	if(waveNumber > 1 && waveNumber < 10)
-	{
-	  for(var i = 0; i < 10 + waveNumber * 2; i++)
-	  {
-	    var t1Enemy = makeT1Enemy(32, 32);
-	    wave.push(t1Enemy);
-	      numT1E++;
-	  }
-	}
-	  
-	if(waveNumber > 9 && waveNumber < 15)
-	{
-	  for(var i = 0; i < 10 + waveNumber * 2; i++)
-	    {
-	      if(i > 10 + waveNumber)
-	      {
-	        var t2Enemy = makeT2Enemy(0 + i * 32, 32)
-	        wave.push(t2Enemy);
-	        numT2E++;
-	      }
-	      else
-	      {
-	        var t1Enemy = makeT1Enemy(0 + i * 32, 32);
-	      wave.push(t1Enemy);
-	        numT1E++;
-	      }
-	    }
-	}
-	  
-	  if(waveNumber > 14 && waveNumber < 20)
-	{
-	  for(var i = 0; i < 10 + waveNumber * 2; i++)
-	    {
-	      if(i > 10 + waveNumber)
-	      {
-	        var t3Enemy = makeT3Enemy(0 + i * 32, 32)
-	        wave.push(t3Enemy);
-	        numT3E++;
-	      }
-	      if(i > waveNumber - 1 && i < 11 + waveNumber)
-	      {
-	        var t2Enemy = makeT2Enemy(0 + i * 32, 32)
-	        wave.push(t2Enemy);
-	        numT2E++;
-	      }
-	      if(i < waveNumber)
-	      {
-	        var t1Enemy = makeT1Enemy(0 + i * 32, 32);
-	      wave.push(t1Enemy);
-	        numT1E++;
-	      }
-	    }
-	}
-	  console.log(numT1E);
-	  console.log(numT2E);
-	  console.log(numT3E); */
+//   console.log(enemyNums[0]);
+//   console.log(enemyNums[1]);
+//   console.log(enemyNums[2]);
+//   console.log(enemyNums[3]);
+//   console.log(enemyNums[4]);
+//   console.log(enemyNums[5]);
 }
