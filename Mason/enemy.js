@@ -103,13 +103,13 @@ function createWave(waveNumber)
 {
 	var wave = [];
   var enemyVals = [1, 5, 10, 15, 20, 25]; //"Cost" of creating each enemy, from 1-6 (0-5).
-  var waveValue = Math.round(waveNumber * 25); //Sets the "budget" for each wave
+  var waveValue = Math.round(waveNumber * 10); //Sets the "budget" for each wave
   var enemNum = 0; //Stores the total number of enemies (for spacing).
   var enemyNums = [0, 0, 0, 0, 0, 0] //Splits total number of enemies into tiers for number balancing and testing.
-  //This loopy boi runs through if statements for every tier of enemy, starting at 6 and going down to 1. It then checks if the wave number is high enough to spawn it, if there is enough budget left to spawn it, and if there are already too many of that tier of enemy. Tier 1 has no limit, the other limits are dictated by wave number.
+  //This loopy boi runs through if statements for every tier of enemy, starting at 6 and going down to 1. It then checks if the wave number is high enough to spawn it, if there is enough budget left to spawn it, and if there are already too many of that tier of enemy. Tier 1 has no limit, the other limits are dictated by wave number. Once the budget is 0, no new enemies spawn and the loop ends.
   while(true)
   {
-  	if(waveNumber > 19 && waveValue > enemyVals[3] && enemyNums[2] < waveNumber)
+  	if(waveNumber > 19 && waveValue > enemyVals[3] && enemyNums[3] < waveNumber)
     {
     	var t4Enemy = makeT4Enemy(0 + enemNum * 32, 32)
 	    wave.push(t4Enemy);
