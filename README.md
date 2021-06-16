@@ -1,5 +1,17 @@
 # LameTD
 
+# What works:
+
+Not much tbh
+
+Rounds work, shooting kinda works, its an insta kill no matter what tho
+
+Better towers have bigger radius and faster attack rate, so spiffy
+
+it doesnt look like it works, but thats cuz of canvas refresh rate, i swear it does(kinda)
+
+other than than, buying towers, spawning enemies, etc work, basically, its just a shitty tower defense
+
 # Ideas:
 
 Some sort of tower defense game
