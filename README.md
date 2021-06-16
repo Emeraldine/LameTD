@@ -1,5 +1,7 @@
 # LameTD
 
+[link to game](https://zekromeon.github.io/LameTD/src/)
+
 # What works:
 
 Not much tbh
