@@ -531,105 +531,110 @@ class Enemy {
 
 
     doThing(enemyMap) {
-        let eM = enemyMap.find(enemy => enemy.name == this.type);
-        this.spawn(true);
-        //This was an attempt at neatening the below code but I couldn't figure it out so oops -Mason
-        /*this.moveSelf = setInterval((function () {
-                if (this.y >= 500) {
-                    this.offMap();
-                    loseHealth();
-                    clearInterval(this.moveSelf);
-                }
-                if (this.y <= 391 && this.x == 145) {
-                    this.moveY("down");
-                    this.spawn();
-                }
-                if (this.y >= 391 && this.x <= 789) {
-                    this.moveX("right");
-                    this.spawn();
-                }
-                if (this.y >= 68 && this.x >= 789) {
-                    this.moveY("top");
-                    this.spawn();
-                }
-                if (this.y <= 68 && this.x >= 268) {
-                    this.moveX("left");
-                    this.spawn();
-                }
-                if (this.y <= 500 && this.x <= 268) {
-                    this.moveX("down");
-                    this.spawn();
-                }
-            }).bind(this), 100);
-        }*/
-
-        //This mess of code times the movements so the enemies stay on the track, the speed at which the function occurs is based on enemy tier speed. There is also an offset of the timer to let it work correctly.
-        for (var i = 0; i < aliveEnemies.length; i++) {
-            if (this == aliveEnemies[i]) {
-                this.offset = i * 16;
-                break;
-            }
-        }
-        this.t = 0;
-        this.a = setInterval((function () {
-            this.moveY("down");
-            this.spawn();
-            if (++this.t== 170 + this.offset) {
-                clearInterval(this.a);
-                this.t = 0;
-                
-                this.b = setInterval((function () {
-                    
-                    this.moveX("right");
-                    this.spawn();
-                    if (++this.t == 294) {
-                        clearInterval(this.b);
-                        this.t = 0;
-                        
-                        this.c = setInterval((function () {
-                            
-                            this.moveY("top");
-                            this.spawn();
-                            if (++this.t == 125) {
-                                clearInterval(this.c);
-                                this.t = 0;
-                                
-                                this.c = setInterval((function () {
-                                    
-                                    this.moveY("top");
-                                    this.spawn();
-                                    if (++this.t == 6) {
-                                        clearInterval(this.c);
-                                        this.t = 0;
-                                        
-                                        this.d = setInterval((function () {
-                                            
-                                            this.moveX("top");
-                                            this.spawn();
-                                            if (++this.t == 225) {
-                                                clearInterval(this.d);
-                                                this.t = 0;
-                                                
-                                                this.f = setInterval((function () {
-                                                    
-                                                    this.moveY("d");
-                                                    this.spawn();
-                                                    if (this.getY() >= 500) {
-                                                        clearInterval(this.f);
-                                                        this.offMap();
-                                                        loseHealth();
-                                                    }
-                                                }).bind(this), eM.speed);
-                                            }
-                                        }).bind(this), eM.speed);
-                                    }
-                                }).bind(this), eM.speed);
-                            }
-                        }).bind(this), eM.speed);
+        if (this.doesExist) {
+            let eM = enemyMap.find(enemy => enemy.name == this.type);
+            this.spawn(true);
+            //This was an attempt at neatening the below code but I couldn't figure it out so oops -Mason
+            /*this.moveSelf = setInterval((function () {
+                    if (this.y >= 500) {
+                        this.offMap();
+                        loseHealth();
+                        clearInterval(this.moveSelf);
                     }
-                }).bind(this), eM.speed);
+                    if (this.y <= 391 && this.x == 145) {
+                        this.moveY("down");
+                        this.spawn();
+                    }
+                    if (this.y >= 391 && this.x <= 789) {
+                        this.moveX("right");
+                        this.spawn();
+                    }
+                    if (this.y >= 68 && this.x >= 789) {
+                        this.moveY("top");
+                        this.spawn();
+                    }
+                    if (this.y <= 68 && this.x >= 268) {
+                        this.moveX("left");
+                        this.spawn();
+                    }
+                    if (this.y <= 500 && this.x <= 268) {
+                        this.moveX("down");
+                        this.spawn();
+                    }
+                }).bind(this), 100);
+            }*/
+
+            //This mess of code times the movements so the enemies stay on the track, the speed at which the function occurs is based on enemy tier speed. There is also an offset of the timer to let it work correctly.
+            for (var i = 0; i < aliveEnemies.length; i++) {
+                if (this == aliveEnemies[i]) {
+                    this.offset = i * 16;
+                    break;
+                }
             }
-        }).bind(this), eM.speed);
+            this.t = 0;
+            this.a = setInterval((function () {
+                this.moveY("down");
+                this.spawn();
+                if (++this.t == 170 + this.offset) {
+                    clearInterval(this.a);
+                    this.t = 0;
+
+                    this.b = setInterval((function () {
+
+                        this.moveX("right");
+                        this.spawn();
+                        if (++this.t == 294) {
+                            clearInterval(this.b);
+                            this.t = 0;
+
+                            this.c = setInterval((function () {
+
+                                this.moveY("top");
+                                this.spawn();
+                                if (++this.t == 125) {
+                                    clearInterval(this.c);
+                                    this.t = 0;
+
+                                    this.c = setInterval((function () {
+
+                                        this.moveY("top");
+                                        this.spawn();
+                                        if (++this.t == 6) {
+                                            clearInterval(this.c);
+                                            this.t = 0;
+
+                                            this.d = setInterval((function () {
+
+                                                this.moveX("top");
+                                                this.spawn();
+                                                if (++this.t == 225) {
+                                                    clearInterval(this.d);
+                                                    this.t = 0;
+
+                                                    this.f = setInterval((function () {
+
+                                                        this.moveY("d");
+                                                        this.spawn();
+                                                        if (this.getY() >= 500) {
+                                                            clearInterval(this.f);
+                                                            this.offMap();
+                                                            loseHealth();
+                                                        }
+                                                    }).bind(this), eM.speed);
+                                                }
+                                            }).bind(this), eM.speed);
+                                        }
+                                    }).bind(this), eM.speed);
+                                }
+                            }).bind(this), eM.speed);
+                        }
+                    }).bind(this), eM.speed);
+                }
+            }).bind(this), eM.speed);
+        }
+        else {
+            this.kill();
+        }
     }
 }
 
