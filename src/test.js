@@ -29,70 +29,35 @@ const towerMap = [
     {
         "name": "tower1",
         "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACi0lEQVRYR+VXO28TQRAe+84cKSCOoEAQxbJkWf45dIiGDtrUoaEDWlroaFA6fo5lWbKMBKLg4ZAinO3zoW98s1rv7cuJI5CYxvbd7sw33zzdoL8sjYD9koh8Z/AeEjrjfO+9OBgMaDgcugyU/X6fVqsVjcdj75nRaOQE+c8CKOH9crlkfh0ehhhQ74uioMlkYmXBxYANwEa6gH4IQqAZqJ0x3tfsRQN4d3DEyl+2E0qSpJa7AAF5Plt/Pv35iSRHtmVgw3sogwIo/lYs6e2dTAGoQkO9Xo+N4tyT2ZwOKakBdYGwMRAFAMbBCkCd/PrCIGDk2fec7ibp9QJAQr26fZ+9/p00KG8Qvf7xmbrdLgOA6EwJO7ZEtDKACxI/uWwqBgMvDh5sGMdZFwAJl9m0nEkYAqCVJ3uOxJQQmAxsm4S4r2rYxQCeLxYLajabKil3CkAPgyhGvN+3b1jLUK8CfJdzRo+I7gMbLOwIgDXc3lmgNxIkVwwDj87mlJVWBq4GwFRca4VVTjw+X8+P0/11qHwJiHNRDCDZRPGHWym1Wi0ZUAoHKgF93wSAu9Pp1GnrUgCgUNsV1PdOp0MPz3LaayYkQK8CQCVinufs2cWqoDezr2wQo1qfBWma8vJy3L6nAECBz/tQCITeEp5tAwAXP+5nQeNbAQC1kBgGdg2AQyF0WDYlNY4lDFqFhJZebxWYlVYb0+Y+gAsaiKDx2BCoXNC911usDKP/B4Dsf9WCweMYgs53XSHg8Yx+oEtV44Qy1SXLMvL9GdHPRiWK7AcAIEZtswDPAGbXANh7SOUVr2KQm4WqTv6N5RRinPc6GcMAAxDjaLUQ9HuMXREBo4OICUPoX62L6cs8t9r6A7O1TT8L/JDDAAAAAElFTkSuQmCC",
-        "speed": 175,
+        "speed": 125,
         "radius": 75
     }, {
         "name": "tower2",
         "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAChElEQVRYR82XvWobQRSFjyQrDhjbmBQWNlgoCEVpQwp1rtKlyjukyCO4sjv7DVz4HVy5ywuoCGkjCxGhQIIM/kEJgSiytOGM9orZ1fxp5ZAMGKzd2TnfPXNmZzaHf9xyHv0IgKsP77P5+ljvOx+sVCrodrs2gaharSr1Tqdj7VMul9Hr9ayQ/y1AxOoLhYKrQp8DEasvFotOl2wOmAAScRH7eXE8HstUJfo8KIAuaAouIfTG7AS4aExvonrXKonDhzQcYSaTycx+GcMUVtMUBAFwsLOtPVyP73Hw/dschAn8wQA40PHGzkxjsJLDye3XhOVLAfDhWq2mbLQ1Qhxu7WKYg1c8n8+j3W7LUAnXravAB6C9gLyVawBzeksBjEYjVZWsdZtbmQBCpsGzj6jbLvu9m0i9Xlc5sGXBtgwFjOL8a7Va2fYCPmWDoPjPj8DVDfD0FeZykBLPBkCBtRduCI6sv3LFdqn88/spoG3Ldu6GBBj8AHb2zRCmEOqVU3z7ybSIpQD4tA1CD2Ja/PEjYHM9OwDHjsSFNAR/SzgpLNYzcKw8RNy3CqS4GcSv39P5ZDBNAIuKZwIYDoHnr6dsAhIvM3y6AFZXw6sPBVBTQVvZCDD4UELjqJ8AaB6VsPmyrwDYXMnXc+M7Fet9FUQIQKj4Ig4oF2ixVK+Tyf/iQjxFQcUFdYoFIgqw0f7muxJwFd/ZBhqnfej3Pd8KM/6FAPSqm29KwGV85RnQOO+nTQkaO6gT7ee5T3Y2pp/J55GM7e3dFxVIXpNzhONjJQGaGYCjyPLTl+PfAEhUTwFp8gbUt2sevRaBCHEgElEOLkdwERcYgaD1en9fGH1ftabVlvWaUesPCMiEMHjI4woAAAAASUVORK5CYIIA",
-        "speed": 150,
+        "speed": 100,
         "radius": 100
     }, {
         "name": "tower3",
         "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACvUlEQVRYR+2WTYsaQRCGazQQBRUWVMgujBiNeDCHnBPID8mfCLntKcfNKQRyzDk/JIecc4gHMYIozAZ0DPhBNPGjw9tuDW3PdM+4LoRA+jIz/VH19FtV3ePQX25OjH9BRLY5GEeLm2Mcty5sNpvU6XRMDgTG0Wxz6vU69Xo9I+TJAJvNxuZAQloAjdKJRqNBu91O7tCwg2COaRzOAWixcRTAQbqogIoD4xxTGEwhCCmAWB7T4DCBipEKiKTObnZFUfNTqVQQQgaPUiFKgUQAMPbhzCV/u6HL2XUkhK5YYgA1eTi+6i5h6KpwHtif3nPozQ/vAAJzdGUSA8AyQ2DR9Sei8+cUcvD67IJ+ORTp/OLyCXlXX4I1HC790DImoV5ChUKByuXygaqmHBiNRjSbzULAUSdmIgD2CsMqBL7R9D4d9FbngBoGddsMged0OiXf96lWq0kIHRDrttst9ft9NhHacOxRzCeZDoFvz/NotVpJAF0Jnq8ARPq6FQCMTiaTA4Ao2TUFjgfQj1s2COftdpuy2azc6HK5pFarFUrS/wBQYL1e02AwwOvdhECVVYj9D5HjOFStVimdTofuq1MAYOzgVtQzOw4gzrlRFmUbRwFgnarCXQAEKjBUt9uVr/P5nHK5HC0WC/mdz+fls1KpBPy22BtPplAQ9x3890vVt0+p/+qzBFAbAHhM6Y/767b+Tqv2xcP3z0isBf0e/5S3HABwCqJlMhmpAADQeE7M7/o+gQ071rsFjMMw2m65oe/vvtJ4PJbfpVJJOtfHk9j/JwAEyg21XnzxiO67OasCrA6viVMhiQKCM54h/I/fAvk5VgjDg5ePZWjgHNVxUxlWH3EAAnFGkqGh7HD/4/Lhi4gBuK9YLAaliSQFmE2FRACc6SoA+lzXlf6Hw6F8AooBuEJOAQhqP2GlxE2L3OwfF64mP1MT9SIAAAAASUVORK5CYIIA",
-        "speed": 125,
+        "speed": 75,
         "radius": 125
     }, {
         "name": "tower4",
         "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC80lEQVRYR8VXz2sTQRR+2WyrOagEby0IgRByrJZCQWpvnuxFwYt/SU8e6//g2YugB/HkTUEolGp6CyGQU3vSlriQpJ3NrnzTfePsZGcm2RScS7Mz8973ve/92G2F/vOqePBTInLdwTmW74713GnYbrep2+3aAFKcY7nuNBoNGgwGVpJLEWi1WpQkCfX7fSvJsgRkdHEcywgtAKmHQArwarXq8mHNXRGBXLkwOG9mJHN3liLQbDaVMzjHcxAEag/SuxZsyhLIRe8DwblO1nYf5Hu93kytFBXhDAEYmxEjwrf1B/RrGtP+nzMviYUI6PllQzMlB3fXVLDDsEJvzk9nJNdtFiIAzyCBBdnOvhKt7ealhgKv6+t0WaFC8PX9h3R68FPVTib/XCnAJdVi3IZ6QZmVbzvjfVv0rhGactUj99PpVPWzXmRCCPkIAO53PsdZrVZT123T0jYJecZLB2bPO/svOwzDkEe0fn0GzzmKd3d2KBaCvh8eFpLg4WO2IUsO+yiK6EenY1XbSeDx9jZdCSFTACfmeK6//EbxZEjRpz3Vhhy5aWt7Y85NACEUkcC+WWwAH08mUvokTalzclJOAVuuuSagDBYKUKt0m1lhsE4F7r86Us4SMVa/L94/yU0+Br/z7EMhePT5RTkFkGN9JfGEgvA2eQkEq8osCG/R8OPTcgTMcEDIJMHR33v+5Trn8aUsyoK1eArQRry4HU0SODfBtzY3pZnIPmjKFiF8pCAxGo2kw9WVFTkTdBLXUU9U5I82NlT144cL3JoXQz41FRGZSUKXHeDoiKPjY92F88vb91kuVeBiRPHpJFh6FJkOzt3z+92WN8i5CejFp5MAgg7O6dGK8WYU0PPMBHhM85sQ0t80gRRyxuOLfwMpazOe9Xygg/PePCr4UpAjkFxFhKlmgmMk88xnBWRxZvdd/7p5R7EeveFU5h4re90q+fUW8JHwEpCgYix7nQkwQDbjJTDPA27L7LL8U/pdYMyDZR8Lg/0L7wsuP1iK/T8AAAAASUVORK5CYIIA",
-        "speed": 100,
+        "speed": 50,
         "radius": 150
     }, {
         "name": "tower5",
         "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACgUlEQVRYR9WXsU4bQRCG5zCmRHIXgZRXwAkgIRHLDxBFoqKnoiJtQkUJtClJkRQ8QJQ3SJRISBGJUV4hICwhLDvo5OPObDQjz2m8t7s3Z9xku7vd2/+b2X9n9yLQNeMYFlnvNGMK09iT2ANo0narRe+zNIX7NIUf5+f4WAB43mzCgzEwF0VQq9V4nGtsrhMCMOurq7BQr5MotrFwaEICbq6sQH1+PhfxAFN/EGBzY8MWL8sYixrMBmZBgDu/9U1I0XMLRRCwkArCC+CIXmdXMUqTBTWAzIiGBLM2LYCR0YfE2JQauNFoBD87nYLvXBlQAaD4+8ZTuBllsD+4gjKIRwGgmG3Kw8UlSs6wFkESARzdXhZSLr+pBICFJ47jfAtdfQFYakMB4qCx7BVf3n8Gl4e/8m+qAKCwsSFcKWYPSLPJravZyt5dIAF8RkyzjLpk1XON9UUfLKkugDLX+/pnAoCTN7a/Qjbsw9/Prwqux/6Pe79hcNeH1x9eTBhyJgDyMHKteah/ZgD2mtspx34+iqUXpgIoq4Yo/unNNelsHT8JFiIE61xcOD2nOgtsZ7N4t/cn79o9WfNCPBpAXERIECOX4kyBELJxHZgGgIoRT8apxmeXsK9OWECVLiQ8p/FFqzmSccwYwnuTKrtiGdzb3JIk0epOeCN09SsDmFgKLYwm9UyoASAI3Jbfz87yyBBGZkSKYqFyXT5c6dMCEAS7mssuAyTpkMov9oeKzn8N4I2eo+rFXXh7+rJyFjRLUCqOSxCnfWKpClEJANcX29hg8G7nGz3j+nPjk1LrhTKAiT8kFsHJ8Sd0fMDQvyA3vh3xyek7hDTb0PW7XbkQiQ+cwf4D1jTXMHwr42oAAAAASUVORK5CYIIA",
-        "speed": 75,
+        "speed": 25,
         "radius": 175
     }, {
         "name": "tower6",
         "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADr0lEQVRYR8VXv09TURQ+pSVo0xbfwgCJpEmD3SDEgQQJo5Orm2GSTRMNDC6YsGgC0R0G5S8gcXOsxEkhEBckJA0mMtSG2pZUKpSa7/DOy3m39z0edPAst+/dc873nR/39rwY/WeJdYHfNmyv5euqRh5oPp/34e/u7urnyH4vUzSjJBPYzKBBRLYDcWQDQFqJgXO5XEeF9vf3aWRkhHp6enx75+fntLe3F2jjKpsYMbxor62t0czMDHQ8QjZwKIAARJMQ8CDSys7zv7CwQIuLiwzIBEqlEs3PzwuJdjabpXg87kXZarWoWCzSysoK9fX1MWEhCVLw0Ww2aXZ2loJs3QDbS0tLVK/XOwkADSSggFUcafBqtcqkBgYGJGsMjgAg/f39PhJiKz6xQjQBPHtZ0IUFieHhYTo4OODITfBV5zaVW2f0onbIpEWEhNjqPQ2OjHg10VFIFiQjGlzevcoMMt5JPEbNGNHro5+EuqbTaV8mBFz7lOitBKB4WCAanCafQ/M4QO+lM2QFt+lm30xS8flnzpSNgK8McK6j6TiL7gu3aSPrmuD62DEBM9VBwN2819GHEpDozAYymxTPV9EJI+BlAWfZefiJzk6qVP/woCPFQu5j7eKmvp+56GWTCPTeP/lGteMqPX13j/3g8tG3rnlHe2UIqi/er/84YsDkLYcavytULv/i58fjd6wksCc9pS47trESwAbOPNIlx0qOn4AfN/5QKnmTnYDAjWSKfz/KD0UpiYdr+5fivNrOfhA49IXASeM4NBNm0FYC01NTVNjY8JGQ5gEJiV5SHwYuduIzMoFGo0FfNjd96TRJyIlA1LYeEP3JiQlK9PZyUFEI8GkA4zASUHpb+MrAz6bv+k4BgCHoeID/PT3lYCw919GEEpRHAC9cY+5kCIhBlpeXeZ2bm+M1mUx6wPgh4PhH3NrevhoBMYYVHEBcJ0IycIUtBJGLfdcE4ABTEASjl1xCcg/gDpApCXPh+NiYN9BcJwPcB3AikYtzGb9AAOA4EXL0TB1tb6u/tSYqr0wAketJGNFpcNEPIjE2OkrbOzuBWGFjeVuM9QAKAnIX6CYQApgTE4kEb0G3GwJcBnMEl7lfkxBwGGgCalq+9LsgrLPb4hTgMqhiEl7d+s5XMO5/6MgAqvWDai+Al30ZcRa0Qwya+CjBiI6LKJVO890PYogYAyx+Y3R3sxWKEYkAHEIACgKVSoWfa7Uar5lMhlfHcZgAdCD43U0GOr4Lw+oUYc8a7D8F37I8NsfsDwAAAABJRU5ErkJgggAA",
-        "speed": 50,
+        "speed": 5,
         "radius": 200
     },
 ]
-
-const enemyMap = [
-    {
-        "name": "enemy1",
-        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACCUlEQVRYR8WXLW/DQAyGXVIpfIMtSWFQyEBVOjK0P1JUOjQ6tD8yNDI6FYwUBTakgSuvVJLJXnz1Xa4X30XTSio1sd/Hr30fncC4T9uFT1LTJAcCQLtcLkl3u93iV1KupKCu2n8FIPHT6UQsWZYlu5DqwJ8A4EBpgcYCGC0pqAUw4ufzmVownU5j29ADoKTKaR4LYGmxA1EAZVkCV8/rH13Y7Xaa5dgDMBUpp7kdAdDTQgdiALziES6EAdDWASsJYP+whvnbi7X7Hh43sHh/DbXBwMuhtRxQA9ytYf7pAKw2sPhKBHB7GnAhtQW9ONYgB5QAQfGBOYgD4M3FWVZX+8/iV+YguGq8DngA2qIoSAdF4AjeGYAbMMNZVRXvCaMBSNgArDY9ceOAeNYB0KPQvnHVgdQbjjYuOIScRFbBDkgBagdcbJfPhmIHAUQPMa+ZATlwUtDdmIbiowHyPKcjVwOAN6W6ruXB1CvAAnCTO/Ss2fJ7bL3bb3TBI27iZRv5PRpCCRBKMBbAp2MBBMRpDjDB9/0T4Hr3fo4Atx/Prv3yVVOs1wE1AKZ0IY6/OkkAs9mMjmFncHxFXlyQEDpxa5bw5G2ahm7BbSwAr4bDqtsHuqN5wMEwANIor+XW0HJWpbiBwKItB2IA2DHZI7ZUW4QEoAlXBloVSICIAkwO1NT+E/IOpPNjUq4fuPkCKt84HNcAAAAASUVORK5CYIIA",
-        "health": 1,
-        "speed": 20
-    }, {
-        "name": "enemy2",
-        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACP0lEQVRYR8WXr3ICQQzGF8MMD1BRAQYkCstzVNXWFlNsVS011NZW9TmwKCQYEBV9AGYw1/nSy052L7uXW6bTM8DeJvkl+fYPPXfdU9XmvVI3xYbOuWo+n1PczWaDjyJfRUZ1tv8CwCV3yP58PhPLYDDgKnAnzIlZJ1JgLjm+I/jlcqGA/X6fIPipW2JqiwRICaqazWbeOQfFwPL4ROOr0at/Dxh+ttutBhHEsQDACRlNp9NA7PfHJf3+GK2C8d1ul2uFCmAVFBmjIrIS3IY641zpG3G4AlYAqkYLQE5XKgANKopOOSoFUOMgiH+BskJECfEks+eGW2151WC1NACifsZVoOwX+8dA+bwi1pO3FHxQtasB7vaLhvKxIj4n6zKADqJS+9/SgqxmqAVGgGzwDIQdQO5siqCS/efgsFd04AE0/0EF4q1VQPhdEHO+XE/VwK2rvDh5N5TVbQVIba1yn8WceOvl97l3mCP9c3JJDQSb+x/8MAGIQ6VxEKVOQ2Zts20FqB34syI+CbmfHFAeyRhrs+8MMB6Pg0tHDgDnyuFwkKdiFScQAMTOI3pOsuJ5cXBZBSW4t5cQPI9EKAFyDq4F0OIEAJngdBLCwcP3s8N61x7sD+83L3H55VSfrFoBKwA8xhAIjqcIYDgc0j0gEo6WpK+ChDAGD7SEu8fpdPq9D3QF4Ct4vHO2VDAPABrj36tAtOzVGNxDIOmgAl0AuGKyR1xSaxISgBRuNAwykAAdEvA+ENP610wVZDRY5OsHfJQQKnovK+UAAAAASUVORK5CYIIA",
-        "health": 2,
-        "speed": 15
-    }, {
-        "name": "enemy3",
-        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACXElEQVRYR82XPWsCQRCGVwLCVUIgpTYKNla2/icr21RprfxPtlY2AW3OMhCwOhCCYcZ9N7N7+zGnFrlG3duZ95mv9a5nHruu1rx3r5t7DVl4sViw7na7hX5nf10NPOGmaVi4qqq7QboAXOfzOYtB+HK5sHC/33cgdG+329FvlW/VJmMMi+OCcFh3gNC6FkID4MRTwikQDYQaQCsOGMrGUwGWh4MxU2PWzcgFvKpr/r4eibWqNubTmM1k0hmAOjzMCKefol9VtSdOwjEAXrd7M1lwWhC80kyLeebIIB47ZCCOezILcr+AcMtCq0cALH4+n81gMOBN4ZiFAKG4BkKeF9CigD2AWKRYI1FEWQKQe1M+KdgWQKqmrt62CXMAVH9qwlhJpH8PgGq9fDmwIV9Bt8vGks0XRucyFGtYCwb/m5/blHAJNAClPkg1oSvhswBS6S81IkqTzABmnQ8WcdjIyEviKgjrH+PpSqACkGlMtXekf7wy5AByYxg6cQ2LG9Pbl1T2Qt/RDGgAUk2lFYZ9EQCnIQzw1IORjGVAQuTsyUcWgI7K0+nkJWQ8HrtHL6+jRQkAQOLH49GzHw6H7qhvAUjndHO/39NH65+R9r2/fv0dWGHNpsZ8fL9BvGU/m82cBSB5CiSAoE8DkBucmkET5gBiOh5ARpxkHCiXQEKICdD6iGZAaxyba6xpfXgA1CDUlbZxUs+JXqlSI1sAcJmkg48anUvwLwDs2D0UvbIMnAUK2stACQBZkgdSrAxUAqQ383bkATCR4lWKjTRXIRi4YE3Ni4nUxOt4iUPt9xdtgNAcJH6FygAAAABJRU5ErkJgggAA",
-        "health": 3,
-        "speed": 30
-    }, {
-        "name": "enemy4",
-        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTElEQVRYR82XoU9DMRDGO7NkiqBAMAQLalOz+3tQWIJCoggWxd8zOzUUGYKHALWgXjLzyF32Xa7Xvq7tDDPL+l57v/vuu7YbuPpPZ6YOapaqmuSc6xaLhRdvuVzS7+L1iicgeNu2HsBoNHI1EKUAnDkF3+12HsBwOHQ1EP8KgEyVAgqy/3mYsgpnj2/8XaCCxNIBUwDdfD7nIJAewVEHDUFjq9UqZcoAgLOLmIhbzQansT4AKKEgLIgXCwrEAIKske337ZUbnI48E3bb1p2/fATGjKgRAEhtIy6OKkAAsQ8AyAs9CgSxSIEUAOL0qmFBTHBr6igArcEByGC0QI+B5B2qP0wHAIzlzNfviAcyAAT08+YiqDeV5fL1K+X+aJJeG85mM+nnQyrEPJCTPc1br9fSGSUAkkHUgfvBHghv7kEA9LJRgRdp7q+D+msfjJ/ebRkC8BqADuUhs8V6HnsDzKmCHA3ACQKAAtkNR29QeLYH4EcwON7LUiBV52OfZQPoLKCADm5PQ/0sNTcLQL9EG5UFSB1GttXs/CqAyWTCNx7teJ2x3hnpxrTZbKTXiwFM9nIeAMJmjxcIIhJc5kPFpAKpBY4FwPwYANc4EZzPAVrg924a3AUkxW3rTp7frPy6UrwGlRIQchiVAHBxIxcSGq8B6MbjMR/DxjixdhcVNATtjBnBPS/R0d80Dd+CiwHQDbgZYfc7UMI0ANFk/rWSOmqJMoMLBKnuKVACgJJpAEiam4QGYIdnTvQy0AAFCcgaFLP0r5nXUsalVWv9AV/n+CrnuSntAAAAAElFTkSuQmCC",
-        "health": 4,
-        "speed": 40,
-    }, {
-        "name": "enemy5",
-        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEElEQVRYR62Xra4CMRCFiyHhIcBgWYPFYXleLA6LYS0GHoIEszfTMM3pMD8t3CqynZ7zzXS2W2apf0zBklmPZGtwMd3tdq7++XzG+VA/CsjGaPp8Pl2AxWJR5gHG9LEmKmM0fb1eLsB8Pi/zDOOBSIBsvN1uEy1mY2l6vV7T/X5Ph8Mhmx2Px7RardIwDBUcw7DW5XLh+eKLABMZ42BjMqTBBmTI5hyPz2Q8VoXi3yDZ+wMgyra1w72qaAA5+/8yx6pYW8MQXIEPALnPLErP5V57c1olaEsQoNmcjCwwq+RWkzIEVUAtv7XXWgNqjRj1igsguzgSi+Y1PROAg1nU2m/eDnw9NRBL72eAVtAuAG4kzARPPHzeAuDpqRXoAcBYC7IbAF8Z+m0JY9fTb3ksY6UsUPctoEWRcNT5EkLqfX0O9Bh7sU0A4zgWjc1m86HnnRfR2hDgLVC+FRIgegui9d0A6/U6X1Lww4MlwQOLLjK3242mzQQqACku6Nln4jiZPZ6ainlZj1XkuPwxQgBP4FcAzacCcMwpiwx6Op3y/U8bdG7s93tZfgwtyaoVaAUgRQlB5jS+Algul4maQjSOlmSpAkI0mle9RNe/x+ORu3TqBeC3QZ6YQQV9AKIRt2TrIKualoMazQsEJV1VoAeAK4aEXNLWJBAgd3jjwioDBOhIoGiQZ/Tn1PueyL/pX2n9AST4BCqvPM1TAAAAAElFTkSuQmCC",
-        "health": 5,
-        "speed": 35
-    }, {
-        "name": "enemy6",
-        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACR0lEQVRYR62XoU4DQRCGtwlpUgcCEkIaRG1VbV8AhSUoXgCFAoPAgELxAiiCRfECtVW1FaQhJCDANWlIjvybm8vs3Ozs7R0rb2fm/3Zmbm6v57qtonTvtQ3T1tELT6dTrzubzUg/O162g3OuIOH1eu2FB4MBB8mKmWVM4iS82Wy8cL/fr0DKbDSO29iQi5OwrDtAkI0ciKYAxWQy8XoxcYKhbMznczxKxk8a4OQQ5+m2MsDtmkCkAAJxqvf96bs7f9wNKvBw9uUung6CDCEbKQgLQE07gl4evbmbl/0A4Pr4w929HtYAYGRBJAFkugHQpAS8JzoDIL1IuSXOBQHIff4VQKs/ifM+6AoQNB/qSzVH4M/vX7UH9na2qubkPlYzxnqg1v10Sh5YDqLYXi5AVLztF49eX60XtAw0BkA5sORM0EBjWZAA2eIk1hbCBLBOSHsWgPTXssABgtNbAnJPg4j5SwgVICXQZT8GUIzH46p38DrhneaL3n1tj+wsGzk7FouF/1xTBgIA7HAhOF89b/vLBp5jaYB4joGFG9PtyU9low2uJABBUFCeDQkBActOfjlhGwUAPV0yU4OHQDQBzZfHVgFgsFwuHe+HFETOPkRHo5E/oAkQCwpnrFiG6LaMQ1gxVAAELx3NS0oMQognY5BW9RYkAOgXzKfQWuL06reGa1UAZdDaaMbz4XAYaNLVW4LIq9pqtSITNW4wBxSAQgpzQQlh/S+UIMHUJT2egRqlBZDT/QoA3FHWahLG4lW1zxFUbKNN+Qdd+ZUw4fICBwAAAABJRU5ErkJgggAA",
-        "health": 6,
-        "speed": 10
-    }
-]
-
 
 ////////
 // math
@@ -338,11 +303,9 @@ function checkAttack() {
                 placedTowers[j].setCoolDown(towerMap.find(tower => tower.name == placedTowers[i].type).speed);
                 if (Math.inRadius(aliveEnemies[i].getX(), aliveEnemies[i].getY(), placedTowers[j].getX(), placedTowers[j].getY(),
                     towerMap.find(tower => tower.name == placedTowers[i].type).radius)) {
-                    aliveEnemies[i].kill();
-                    aliveEnemies.splice(i, 1);
+                    aliveEnemies[i].damaged();
+                    //aliveEnemies.splice(i, 1);
                     i--;
-                    let a = document.getElementById("cash").innerHTML;
-                    document.getElementById("cash").innerHTML = Number(a) + 100;
                     console.log("shot a thing");
                 }
                 placedTowers[j].setCoolDown(towerMap.find(tower => tower.name == placedTowers[i].getType()).speed);
@@ -416,15 +379,16 @@ const map = [];
 function startWave() {
     let a = document.getElementById("wave").innerHTML;
     document.getElementById("wave").innerHTML = Number(a) + 1;
-    var e = new Enemy("enemy1", 145, 0);
+    createWave(document.getElementById("wave").innerHTML);
+    /*var e = makeT1Enemy(145, 0);
     e.doThing(enemyMap);
     for(var i = 0; i <= a; i++)
     {
     setTimeout(function () {
-        e = new Enemy("enemy2", 145, 0);
+        e = new makeT2Enemy(145, 0);
         e.doThing(enemyMap);
     }, 100);
-    }
+    }*/
     disableWave();
 }
 //oh god please let all this work
@@ -454,16 +418,51 @@ function disableWave() {
     document.getElementById("thing").disabled = true;
 }
 
+const enemyMap = [
+    {
+        "name": "enemy1",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACCUlEQVRYR8WXLW/DQAyGXVIpfIMtSWFQyEBVOjK0P1JUOjQ6tD8yNDI6FYwUBTakgSuvVJLJXnz1Xa4X30XTSio1sd/Hr30fncC4T9uFT1LTJAcCQLtcLkl3u93iV1KupKCu2n8FIPHT6UQsWZYlu5DqwJ8A4EBpgcYCGC0pqAUw4ufzmVownU5j29ADoKTKaR4LYGmxA1EAZVkCV8/rH13Y7Xaa5dgDMBUpp7kdAdDTQgdiALziES6EAdDWASsJYP+whvnbi7X7Hh43sHh/DbXBwMuhtRxQA9ytYf7pAKw2sPhKBHB7GnAhtQW9ONYgB5QAQfGBOYgD4M3FWVZX+8/iV+YguGq8DngA2qIoSAdF4AjeGYAbMMNZVRXvCaMBSNgArDY9ceOAeNYB0KPQvnHVgdQbjjYuOIScRFbBDkgBagdcbJfPhmIHAUQPMa+ZATlwUtDdmIbiowHyPKcjVwOAN6W6ruXB1CvAAnCTO/Ss2fJ7bL3bb3TBI27iZRv5PRpCCRBKMBbAp2MBBMRpDjDB9/0T4Hr3fo4Atx/Prv3yVVOs1wE1AKZ0IY6/OkkAs9mMjmFncHxFXlyQEDpxa5bw5G2ahm7BbSwAr4bDqtsHuqN5wMEwANIor+XW0HJWpbiBwKItB2IA2DHZI7ZUW4QEoAlXBloVSICIAkwO1NT+E/IOpPNjUq4fuPkCKt84HNcAAAAASUVORK5CYIIA",
+        "health": 1,
+        "speed": 15,
+    }, {
+        "name": "enemy2",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACP0lEQVRYR8WXr3ICQQzGF8MMD1BRAQYkCstzVNXWFlNsVS011NZW9TmwKCQYEBV9AGYw1/nSy052L7uXW6bTM8DeJvkl+fYPPXfdU9XmvVI3xYbOuWo+n1PczWaDjyJfRUZ1tv8CwCV3yP58PhPLYDDgKnAnzIlZJ1JgLjm+I/jlcqGA/X6fIPipW2JqiwRICaqazWbeOQfFwPL4ROOr0at/Dxh+ttutBhHEsQDACRlNp9NA7PfHJf3+GK2C8d1ul2uFCmAVFBmjIrIS3IY641zpG3G4AlYAqkYLQE5XKgANKopOOSoFUOMgiH+BskJECfEks+eGW2151WC1NACifsZVoOwX+8dA+bwi1pO3FHxQtasB7vaLhvKxIj4n6zKADqJS+9/SgqxmqAVGgGzwDIQdQO5siqCS/efgsFd04AE0/0EF4q1VQPhdEHO+XE/VwK2rvDh5N5TVbQVIba1yn8WceOvl97l3mCP9c3JJDQSb+x/8MAGIQ6VxEKVOQ2Zts20FqB34syI+CbmfHFAeyRhrs+8MMB6Pg0tHDgDnyuFwkKdiFScQAMTOI3pOsuJ5cXBZBSW4t5cQPI9EKAFyDq4F0OIEAJngdBLCwcP3s8N61x7sD+83L3H55VSfrFoBKwA8xhAIjqcIYDgc0j0gEo6WpK+ChDAGD7SEu8fpdPq9D3QF4Ct4vHO2VDAPABrj36tAtOzVGNxDIOmgAl0AuGKyR1xSaxISgBRuNAwykAAdEvA+ENP610wVZDRY5OsHfJQQKnovK+UAAAAASUVORK5CYIIA",
+        "health": 2,
+        "speed": 13,
+    }, {
+        "name": "enemy3",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACXElEQVRYR82XPWsCQRCGVwLCVUIgpTYKNla2/icr21RprfxPtlY2AW3OMhCwOhCCYcZ9N7N7+zGnFrlG3duZ95mv9a5nHruu1rx3r5t7DVl4sViw7na7hX5nf10NPOGmaVi4qqq7QboAXOfzOYtB+HK5sHC/33cgdG+329FvlW/VJmMMi+OCcFh3gNC6FkID4MRTwikQDYQaQCsOGMrGUwGWh4MxU2PWzcgFvKpr/r4eibWqNubTmM1k0hmAOjzMCKefol9VtSdOwjEAXrd7M1lwWhC80kyLeebIIB47ZCCOezILcr+AcMtCq0cALH4+n81gMOBN4ZiFAKG4BkKeF9CigD2AWKRYI1FEWQKQe1M+KdgWQKqmrt62CXMAVH9qwlhJpH8PgGq9fDmwIV9Bt8vGks0XRucyFGtYCwb/m5/blHAJNAClPkg1oSvhswBS6S81IkqTzABmnQ8WcdjIyEviKgjrH+PpSqACkGlMtXekf7wy5AByYxg6cQ2LG9Pbl1T2Qt/RDGgAUk2lFYZ9EQCnIQzw1IORjGVAQuTsyUcWgI7K0+nkJWQ8HrtHL6+jRQkAQOLH49GzHw6H7qhvAUjndHO/39NH65+R9r2/fv0dWGHNpsZ8fL9BvGU/m82cBSB5CiSAoE8DkBucmkET5gBiOh5ARpxkHCiXQEKICdD6iGZAaxyba6xpfXgA1CDUlbZxUs+JXqlSI1sAcJmkg48anUvwLwDs2D0UvbIMnAUK2stACQBZkgdSrAxUAqQ383bkATCR4lWKjTRXIRi4YE3Ni4nUxOt4iUPt9xdtgNAcJH6FygAAAABJRU5ErkJgggAA",
+        "health": 3,
+        "speed": 11,
+    }, {
+        "name": "enemy4",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTElEQVRYR82XoU9DMRDGO7NkiqBAMAQLalOz+3tQWIJCoggWxd8zOzUUGYKHALWgXjLzyF32Xa7Xvq7tDDPL+l57v/vuu7YbuPpPZ6YOapaqmuSc6xaLhRdvuVzS7+L1iicgeNu2HsBoNHI1EKUAnDkF3+12HsBwOHQ1EP8KgEyVAgqy/3mYsgpnj2/8XaCCxNIBUwDdfD7nIJAewVEHDUFjq9UqZcoAgLOLmIhbzQansT4AKKEgLIgXCwrEAIKske337ZUbnI48E3bb1p2/fATGjKgRAEhtIy6OKkAAsQ8AyAs9CgSxSIEUAOL0qmFBTHBr6igArcEByGC0QI+B5B2qP0wHAIzlzNfviAcyAAT08+YiqDeV5fL1K+X+aJJeG85mM+nnQyrEPJCTPc1br9fSGSUAkkHUgfvBHghv7kEA9LJRgRdp7q+D+msfjJ/ebRkC8BqADuUhs8V6HnsDzKmCHA3ACQKAAtkNR29QeLYH4EcwON7LUiBV52OfZQPoLKCADm5PQ/0sNTcLQL9EG5UFSB1GttXs/CqAyWTCNx7teJ2x3hnpxrTZbKTXiwFM9nIeAMJmjxcIIhJc5kPFpAKpBY4FwPwYANc4EZzPAVrg924a3AUkxW3rTp7frPy6UrwGlRIQchiVAHBxIxcSGq8B6MbjMR/DxjixdhcVNATtjBnBPS/R0d80Dd+CiwHQDbgZYfc7UMI0ANFk/rWSOmqJMoMLBKnuKVACgJJpAEiam4QGYIdnTvQy0AAFCcgaFLP0r5nXUsalVWv9AV/n+CrnuSntAAAAAElFTkSuQmCC",
+        "health": 4,
+        "speed": 9,
+    }, {
+        "name": "enemy5",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEElEQVRYR62Xra4CMRCFiyHhIcBgWYPFYXleLA6LYS0GHoIEszfTMM3pMD8t3CqynZ7zzXS2W2apf0zBklmPZGtwMd3tdq7++XzG+VA/CsjGaPp8Pl2AxWJR5gHG9LEmKmM0fb1eLsB8Pi/zDOOBSIBsvN1uEy1mY2l6vV7T/X5Ph8Mhmx2Px7RardIwDBUcw7DW5XLh+eKLABMZ42BjMqTBBmTI5hyPz2Q8VoXi3yDZ+wMgyra1w72qaAA5+/8yx6pYW8MQXIEPALnPLErP5V57c1olaEsQoNmcjCwwq+RWkzIEVUAtv7XXWgNqjRj1igsguzgSi+Y1PROAg1nU2m/eDnw9NRBL72eAVtAuAG4kzARPPHzeAuDpqRXoAcBYC7IbAF8Z+m0JY9fTb3ksY6UsUPctoEWRcNT5EkLqfX0O9Bh7sU0A4zgWjc1m86HnnRfR2hDgLVC+FRIgegui9d0A6/U6X1Lww4MlwQOLLjK3242mzQQqACku6Nln4jiZPZ6ainlZj1XkuPwxQgBP4FcAzacCcMwpiwx6Op3y/U8bdG7s93tZfgwtyaoVaAUgRQlB5jS+Algul4maQjSOlmSpAkI0mle9RNe/x+ORu3TqBeC3QZ6YQQV9AKIRt2TrIKualoMazQsEJV1VoAeAK4aEXNLWJBAgd3jjwioDBOhIoGiQZ/Tn1PueyL/pX2n9AST4BCqvPM1TAAAAAElFTkSuQmCC",
+        "health": 5,
+        "speed": 7
+    }, {
+        "name": "enemy6",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACR0lEQVRYR62XoU4DQRCGtwlpUgcCEkIaRG1VbV8AhSUoXgCFAoPAgELxAiiCRfECtVW1FaQhJCDANWlIjvybm8vs3Ozs7R0rb2fm/3Zmbm6v57qtonTvtQ3T1tELT6dTrzubzUg/O162g3OuIOH1eu2FB4MBB8mKmWVM4iS82Wy8cL/fr0DKbDSO29iQi5OwrDtAkI0ciKYAxWQy8XoxcYKhbMznczxKxk8a4OQQ5+m2MsDtmkCkAAJxqvf96bs7f9wNKvBw9uUung6CDCEbKQgLQE07gl4evbmbl/0A4Pr4w929HtYAYGRBJAFkugHQpAS8JzoDIL1IuSXOBQHIff4VQKs/ifM+6AoQNB/qSzVH4M/vX7UH9na2qubkPlYzxnqg1v10Sh5YDqLYXi5AVLztF49eX60XtAw0BkA5sORM0EBjWZAA2eIk1hbCBLBOSHsWgPTXssABgtNbAnJPg4j5SwgVICXQZT8GUIzH46p38DrhneaL3n1tj+wsGzk7FouF/1xTBgIA7HAhOF89b/vLBp5jaYB4joGFG9PtyU9low2uJABBUFCeDQkBActOfjlhGwUAPV0yU4OHQDQBzZfHVgFgsFwuHe+HFETOPkRHo5E/oAkQCwpnrFiG6LaMQ1gxVAAELx3NS0oMQognY5BW9RYkAOgXzKfQWuL06reGa1UAZdDaaMbz4XAYaNLVW4LIq9pqtSITNW4wBxSAQgpzQQlh/S+UIMHUJT2egRqlBZDT/QoA3FHWahLG4lW1zxFUbKNN+Qdd+ZUw4fICBwAAAABJRU5ErkJgggAA",
+        "health": 6,
+        "speed": 5
+    }
+]
+
 class Enemy {
-    constructor(type, x, y) {
+    constructor(type, x, y, reward) {
         this.type = type;
-        this.x = x;
+        this.x = 145;
         this.y = y;
+        this.reward = reward
+        this.health = enemyMap.find(enemy => enemy.name == this.type).health;
         this.exists = true;
     }
     spawn(first = null) {
-        if(!this.exists)
-        {
+        if (!this.exists) {
             return;
         }
         let img = new Image();
@@ -473,26 +472,23 @@ class Enemy {
         img.onload = function () {
             ctx.drawImage(img, tmpX, tmpY);
         }
-        if(first)
-        {
+        if (first) {
             aliveEnemies.push(this);
         }
-        
+
     }
     moveX(dir) {
-        if(!this.exists)
-        {
+        if (!this.exists) {
             return;
         }
-        if (dir == "left") {
+        if (dir == "right") {
             this.x += 2;
         } else {
             this.x -= 2;
         }
     }
     moveY(dir) {
-        if(!this.exists)
-        {
+        if (!this.exists) {
             return;
         }
         if (dir == "top") {
@@ -507,12 +503,28 @@ class Enemy {
     getY() {
         return Number(this.y);
     }
+    getReward() {
+        return Number(this.reward);
+    }
+    damaged() {
+        this.health--;
+        if (this.health <= 0) {
+            this.kill()
+        }
+    }
     kill() {
+        let a = document.getElementById("cash").innerHTML;
+        document.getElementById("cash").innerHTML = Number(a) + this.reward;
         self = null;
         this.exists = false;
+        aliveEnemies.splice(this, 1);
     }
-    doesExist()
-    {
+    offMap() {
+        self = null;
+        this.exists = false;
+        aliveEnemies.splice(this, 1);
+    }
+    doesExist() {
         return this.exists;
     }
 
@@ -521,19 +533,54 @@ class Enemy {
     doThing(enemyMap) {
         let eM = enemyMap.find(enemy => enemy.name == this.type);
         this.spawn(true);
+        //This was an attempt at neatening the below code but I couldn't figure it out so oops -Mason
+        /*this.moveSelf = setInterval((function () {
+                if (this.y >= 500) {
+                    this.offMap();
+                    loseHealth();
+                    clearInterval(this.moveSelf);
+                }
+                if (this.y <= 391 && this.x == 145) {
+                    this.moveY("down");
+                    this.spawn();
+                }
+                if (this.y >= 391 && this.x <= 789) {
+                    this.moveX("right");
+                    this.spawn();
+                }
+                if (this.y >= 68 && this.x >= 789) {
+                    this.moveY("top");
+                    this.spawn();
+                }
+                if (this.y <= 68 && this.x >= 268) {
+                    this.moveX("left");
+                    this.spawn();
+                }
+                if (this.y <= 500 && this.x <= 268) {
+                    this.moveX("down");
+                    this.spawn();
+                }
+            }).bind(this), 100);
+        }*/
+
+        //This mess of code times the movements so the enemies stay on the track, the speed at which the function occurs is based on enemy tier speed. There is also an offset of the timer to let it work correctly.
+        for (var i = 0; i < aliveEnemies.length; i++) {
+            if (this == aliveEnemies[i]) {
+                this.offset = i * 16;
+                break;
+            }
+        }
         this.t = 0;
         this.a = setInterval((function () {
-            
-            
             this.moveY("down");
             this.spawn();
-            if (++this.t == 170) {
+            if (++this.t== 170 + this.offset) {
                 clearInterval(this.a);
                 this.t = 0;
                 
                 this.b = setInterval((function () {
                     
-                    this.moveX("left");
+                    this.moveX("right");
                     this.spawn();
                     if (++this.t == 294) {
                         clearInterval(this.b);
@@ -569,7 +616,7 @@ class Enemy {
                                                     this.spawn();
                                                     if (this.getY() >= 500) {
                                                         clearInterval(this.f);
-                                                        this.kill();
+                                                        this.offMap();
                                                         loseHealth();
                                                     }
                                                 }).bind(this), eM.speed);
@@ -583,5 +630,97 @@ class Enemy {
                 }).bind(this), eM.speed);
             }
         }).bind(this), eM.speed);
+    }
+}
+
+//Enemy creation functions for Wave creation.
+function makeT1Enemy(x, y)
+{
+    var t1Enemy = new Enemy("enemy1", x, y, 10);
+  return t1Enemy;
+}
+function makeT2Enemy(x, y)
+{
+	var t2Enemy = new Enemy("enemy2", x, y, 20);
+  return t2Enemy;
+}
+function makeT3Enemy(x, y)
+{
+	var t3Enemy = new Enemy("enemy3", x, y, 30);
+  return t3Enemy;
+}
+function makeT4Enemy(x, y)
+{
+	var t4Enemy = new Enemy("enemy4", x, y, 40);
+  return t4Enemy;
+}
+function makeT5Enemy(x, y)
+{
+	var t5Enemy = new Enemy("enemy5", x, y, 50);
+  return t5Enemy;
+}
+function makeT6Enemy(x, y)
+{
+	var t6Enemy = new Enemy("enemy1", x, y, 60);
+  return t6Enemy;
+}
+
+///Make-A-Wave Foundation
+function createWave(waveNumber) {
+    var enemyVals = [1, 2, 3, 4, 5, 6]; //"Cost" of creating each enemy, from 1-6 (0-5).
+    var waveValue = Math.round(waveNumber * 6); //Sets the "budget" for each wave
+    var enemNum = 0; //Stores the total number of enemies (for spacing).
+    var enemyNums = [0, 0, 0, 0, 0, 0] //Splits total number of enemies into tiers for number balancing and testing.
+    //This loopy boi runs through if statements for every tier of enemy, starting at 6 and going down to 1. It then checks if the wave number is high enough to spawn it, if there is enough budget left to spawn it, and if there are already too many of that tier of enemy. Tier 1 has no limit, the other limits are dictated by wave number. Once the budget is 0, no new enemies spawn and the loop ends.
+    while (true) {
+        if (waveNumber > 49 && waveValue > enemyVals[5] && enemyNums[5] < 1 + waveNumber - 50) {
+            var t6Enemy = makeT6Enemy(145, 0 - enemNum * 32);
+            t6Enemy.doThing(enemyMap);
+            waveValue -= enemyVals[5];
+            enemNum++;
+            enemyNums[5] = enemyNums[5] + 1;
+            continue;
+        }
+        if (waveNumber > 39 && waveValue > enemyVals[4] && enemyNums[4] < 1 + waveNumber - 40) {
+            var t5Enemy = makeT5Enemy(145, 0 - enemNum * 32);
+            t5Enemy.doThing(enemyMap);
+            waveValue -= enemyVals[4];
+            enemNum++;
+            enemyNums[4] = enemyNums[4] + 1;
+            continue;
+        }
+        if (waveNumber > 29 && waveValue > enemyVals[3] && enemyNums[3] < 1 + waveNumber - 30) {
+            var t4Enemy = makeT4Enemy(145, 0 - enemNum * 32);
+            t4Enemy.doThing(enemyMap);
+            waveValue -= enemyVals[3];
+            enemNum++;
+            enemyNums[3] = enemyNums[3] + 1;
+            continue;
+        }
+        if (waveNumber > 19 && waveValue > enemyVals[2] && enemyNums[2] < 1 + waveNumber - 20) {
+            var t3Enemy = makeT3Enemy(145, 0 - enemNum * 32);
+            t3Enemy.doThing(enemyMap);
+            waveValue -= enemyVals[2];
+            enemNum++;
+            enemyNums[2] = enemyNums[2] + 1;
+            continue;
+        }
+        if (waveNumber > 9 && waveValue > enemyVals[1] && enemyNums[1] < 1 + waveNumber - 10) {
+            var t2Enemy = makeT2Enemy(145, 0 - enemNum * 32);
+            t2Enemy.doThing(enemyMap);
+            waveValue -= enemyVals[1];
+            enemNum++;
+            enemyNums[1] = enemyNums[1] + 1;
+            continue;
+        }
+        if (waveValue >= enemyVals[0]) {
+            var t1Enemy = makeT1Enemy(145, 0 - enemNum * 32);
+            t1Enemy.doThing(enemyMap);
+            waveValue -= enemyVals[0];
+            enemNum++;
+            enemyNums[0] = enemyNums[0] + 1;
+            continue;
+        }
+        break;
     }
 }
