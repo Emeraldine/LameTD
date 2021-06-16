@@ -252,27 +252,25 @@ function setMousePosition(e) {
     }
 }
 
-function update() {
-    if (selected) {
-        let tow = towerMap.find(tower => tower.name == selection);
-        ctx.beginPath();
-        ctx.arc(mouseX, mouseY, tow.radius, 0, 2 * Math.PI, true);
-        canPlace ? ctx.fillStyle = "rgba(138, 138, 138, 0.5)" : ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
-        ctx.fill();
-        tmpTower = new Image();
-        tmpTower.src = tow.image;
-        tmpTower.onload = function () {
-        ctx.drawImage(tmpTower, (mouseX - 21), (mouseY - 21));
-        }
-    }
-    requestAnimationFrame(update);
-}
-update();
-
 
 function rebuild() {
     
     setBg(); 
+
+    if (selected) {
+        let tow = towerMap.find(tower => tower.name == selection);
+        tmpTower = new Image();
+        tmpTower.src = tow.image;
+        tmpTower.onload = function () {
+        ctx.drawImage(tmpTower, (mouseX - 21), (mouseY - 21));
+        ctx.beginPath();
+        ctx.arc(mouseX, mouseY, tow.radius, 0, 2 * Math.PI, true);
+        canPlace ? ctx.fillStyle = "rgba(138, 138, 138, 0.5)" : ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
+        ctx.fill();
+        }
+    }
+
+
     for (let i = 0; i < placedTowers.length; i++) {
         placedTowers[i].build();
         }
@@ -452,6 +450,13 @@ const enemyMap = [
     }
 ]
 
+function killStuffPewPew(element)
+{
+    i = aliveEnemies.indexOf(element);
+    aliveEnemies.splice(i, 1);
+    console.log("killed stuff: " + aliveEnemies.length)
+}
+
 class Enemy {
     constructor(type, x, y, reward) {
         this.type = type;
@@ -517,20 +522,12 @@ class Enemy {
         document.getElementById("cash").innerHTML = Number(a) + this.reward;
         self = null;
         this.exists = false;
-        for (var i = 0; i < aliveEnemies.length; i++) {
-            if (this == aliveEnemies[i]) {
-                aliveEnemies.splice(i, 1);
-            }
-        }
+        killStuffPewPew(this);
     }
     offMap() {
         self = null;
         this.exists = false;
-        for (var i = 0; i < aliveEnemies.length; i++) {
-            if (this == aliveEnemies[i]) {
-                aliveEnemies.splice(i, 1);
-            }
-        }
+        killStuffPewPew(this);
     }
     doesExist() {
         return this.exists;
