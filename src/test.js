@@ -452,6 +452,13 @@ const enemyMap = [
     }
 ]
 
+function killStuffPewPew(element)
+{
+    i = aliveEnemies.indexOf(element);
+    aliveEnemies.splice(i, 1);
+    console.log("killed stuff: " + aliveEnemies.length)
+}
+
 class Enemy {
     constructor(type, x, y, reward) {
         this.type = type;
@@ -517,12 +524,12 @@ class Enemy {
         document.getElementById("cash").innerHTML = Number(a) + this.reward;
         self = null;
         this.exists = false;
-        aliveEnemies.splice(this, 1);
+        killStuffPewPew(this);
     }
     offMap() {
         self = null;
         this.exists = false;
-        aliveEnemies.splice(this, 1);
+        killStuffPewPew(this);
     }
     doesExist() {
         return this.exists;
