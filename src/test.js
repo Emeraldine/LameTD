@@ -671,7 +671,7 @@ function makeT5Enemy(x, y)
 }
 function makeT6Enemy(x, y)
 {
-	var t6Enemy = new Enemy("enemy1", x, y, 60);
+	var t6Enemy = new Enemy("enemy6", x, y, 60);
   return t6Enemy;
 }
 
